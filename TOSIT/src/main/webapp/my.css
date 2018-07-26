@@ -1,0 +1,45 @@
+@media only screen and (min-width: 1367px) and (max-width: 1600px) {
+    .layui-side {
+        width: 140px !important;
+    }
+    .layui-nav-tree {
+        width: 140px !important;
+    }
+    .layui-body {
+        left: 140px !important;
+    }
+}
+
+@media only screen and (max-width: 1366px) {
+    .layui-side {
+        width: 120px !important;
+    }
+    .layui-nav-tree {
+        width: 120px !important;
+    }
+    .layui-body {
+        left: 120px !important;
+    }
+}
+
+#tabTitle>li:first-child i {
+    display: none;
+}
+
+#tabContainers iframe {
+    width: 100%;
+    border: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.fly-tab.layui-tab {
+    margin: 0;
+}
+
+.layui-logo {
+    color: #f8f9fa !important;
+    font-size: 1.25rem !important;
+}

@@ -1,0 +1,94 @@
+<html>
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+<body>
+<div class="container"style="padding: 100px 100px 10px">
+    <h1>
+        <div style="width:50%;height:auto;float:left;display:inline">已有班级</div>
+        <div style="width:50%;height:auto;float:left;display:inline">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1"style="float: right">
+                创建班级
+            </button>
+        </div>
+    </h1>
+
+    <!-- 模态框 -->
+    <div class="modal fade" id="myModal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h1>
+                        <div style="width:100%;height:auto;float:left;display:inline">请填写班级信息</div>
+                    </h1>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- 模态框主体 -->
+                <div class="modal-body">
+                    <div class="container mt-3">
+                        <form action="/action_page.php">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">班级编号</span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="班号" id="num" name="cnum">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">班级名称</span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="班名" id="name" name="cname">
+                            </div>
+                            <button type="submit" class="btn btn-primary"style="float: right">提交</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- 模态框底部 -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table table-hover"style="border:1px;width: 100%">
+            <thead>
+            <tr>
+                <th>班级号</th>
+                <th>教师</th>
+                <th>已有人数</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>
