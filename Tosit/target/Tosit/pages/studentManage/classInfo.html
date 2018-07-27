@@ -1,0 +1,102 @@
+<html>
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<body>
+<div class="container"style="padding: 100px 100px 10px">
+    <div class="dropdown">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            选择班级
+        </button>
+        <div class="dropdown-menu"><!--这里应该先得到有几个班-->
+            <a class="dropdown-item" href="#">1班</a>
+            <a class="dropdown-item" href="#">2班</a><!--后续应该能得到选择的那个班，然后对应显示-->
+            <a class="dropdown-item" href="#">3班</a>
+        </div>
+    </div>
+
+<div class="container">
+    <h1>
+        <div style="width:100%;height:auto;float:left;display:inline">已有学员</div>
+    </h1>
+    <div class="container">
+        <table class="table table-hover"style="border:1px;width: 100%">
+            <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>组</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3"style="float: right">
+                        修改
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+<div class="modal fade" id="myModal3">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <div class="header clearfix">
+                    <h3 class="text-muted">修改组号</h3>
+                </div>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+                <form>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">学生当前所在组</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="组号" id="num1" name="gnum1" readonly="readonly"><!--应该能获取当前组号,如果没有组可以设为0-->
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">将该生移动至组</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="组号" id="num2" name="gnum2">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary "style="float: right">提交</button>
+                </form>
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
