@@ -33,4 +33,8 @@
     <select id="getStudentFile" resultMap="stu_file_libMapper">
         select * from stu_file_lib where Snumber = #{Snumber}
     </select>
+
+    <select id="getStudentFileByFurl" resultMap="stu_file_libMapper">
+        select * from stu_file_lib where furl = #{furl}
+    </select>
 </mapper>

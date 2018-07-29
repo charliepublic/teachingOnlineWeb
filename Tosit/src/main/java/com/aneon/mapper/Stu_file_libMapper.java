@@ -13,4 +13,6 @@ public interface Stu_file_libMapper {
     List<Stu_file_lib> findFile(String fileName);
 
     List<Stu_file_lib> getStudentFile(String Snumber);
+
+    List<Stu_file_lib> getStudentFileByFurl(String furl);
 }

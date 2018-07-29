@@ -25,11 +25,11 @@ function searchFile() {
                 content += "<div  class=\"container-fluid  border\" style=\"padding-top:70px;padding-bottom:70px\">\n" +
                     "            <div class=\"container\">\n" +
                     "                <div class=\"form-inline\">\n" +
-                    "                    <a   href=\""+arr[i].furl+ "\">"+arr[i].filename+"</a> <h6 style=\"float: contour\" >提交者："+arr[i].Tnumber +"</h6>\n" +
+                    "                    <a   href=\""+arr[i].furl+ "\">"+arr[i].filename+"</a> <h6 style=\"float: contour\" >提交者："+arr[i].tnumber +"</h6>\n" +
                     "\n" +
                     "                </div>\n" +
                     "            </div>\n" +
-                    "            <p>"+arr[i].detail+"</p>";
+                    "            <p>"+arr[i].detail+"</p></div>";
             }
             $('#showFile').html(content);
         }
@@ -39,11 +39,6 @@ function searchFile() {
 }
 
 function onLoadFileForShow() {
-
-
-
-
-
     $.ajax({
         type: 'get',
         url: '/onLoad.do',
@@ -57,15 +52,14 @@ function onLoadFileForShow() {
                 content += "<div  class=\"container-fluid  border\" style=\"padding-top:70px;padding-bottom:70px\">\n" +
                     "            <div class=\"container\">\n" +
                     "                <div class=\"form-inline\">\n" +
-                    "                    <a  href=\"" + arr[i].furl + "\">"+arr[i].filename+"</a> <h6 style=\"float: contour\" >提交者：" +arr[i].Tnumber +"</h6>\n" +
+                    "                    <a  href=\"" + arr[i].furl + "\">"+arr[i].filename+"</a> <h6 style=\"float: contour\" >提交者：" +arr[i].tnumber +"</h6>\n" +
                     "\n" +
                     "                </div>\n" +
                     "            </div>\n" +
-                    "            <p>"+arr[i].detail+"</p>";
+                    "            <p>"+arr[i].detail+"</p></div>" +
+                    "";
             }
             $('#showFile').html(content);
         }
     })
-
-
 }

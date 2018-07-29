@@ -18,6 +18,7 @@ import java.util.List;
 public class fileController {
     @Autowired
     fileService fileService;
+
     @RequestMapping(value = "/searchTeacherFile.do", produces = "text/html;charset=UTF-8")
     public @ResponseBody
     String searchTeacherFile(String fileName,HttpServletResponse response ) {
@@ -66,5 +67,38 @@ public class fileController {
             return "[]";
         }
         return Files;
+    }
+
+    @RequestMapping(value = "/onDelete.do", produces = "text/html;charset=UTF-8")
+    public  @ResponseBody
+    void deleteFiles(String furl,HttpServletResponse response,HttpSession httpSession){
+        response.setHeader("Cache-Control", "no-cache");
+        response.setContentType("text/json;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        User user = (User)httpSession.getAttribute("User");
+        String userName = user.getUsername();
+        if(userName.length() == 10 || userName.length() == 12)
+            fileService.deleteTeacherFileByFurl(furl);
+        if(userName.length() == 14)
+            fileService.deleteStudentFileByFurl(furl);
+    }
+
+
+    ///onChangeDetail.do
+    @RequestMapping(value = "/onChangeDetail.do", produces = "text/html;charset=UTF-8")
+    public  @ResponseBody
+    void changeDetail(String furl,HttpServletResponse response,HttpSession httpSession){
+        response.setHeader("Cache-Control", "no-cache");
+        response.setContentType("text/json;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        User user = (User)httpSession.getAttribute("User");
+        String userName = user.getUsername();
+        if(userName.length() == 10 || userName.length() == 12)
+            fileService.updataTeacherFile(furl);
+        if(userName.length() == 14)
+            fileService.updataStudentFile(furl);
+
     }
 }

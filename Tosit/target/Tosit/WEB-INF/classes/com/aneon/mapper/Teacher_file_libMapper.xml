@@ -35,4 +35,8 @@
     <select id="getAllTeacherFile" resultMap="teacher_file_libMapper">
         select  * from teacher_file_lib
     </select>
+
+    <select id="getTeacherFileByFurl" resultMap="teacher_file_libMapper">
+        select * from  teacher_file_lib where furl = #{furl}
+    </select>
 </mapper>

@@ -16,4 +16,6 @@ public interface Teacher_file_libMapper {
     List<Teacher_file_lib> getTeacherFile(String Tnumber);
 
     List<Teacher_file_lib> getAllTeacherFile();
+
+    List<Teacher_file_lib> getTeacherFileByFurl(String furl);
 }
