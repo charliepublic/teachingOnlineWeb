@@ -8,9 +8,20 @@
         <result column="Tname" property="name" jdbcType="VARCHAR" />
         <result column="teachfile" property="teachFile" jdbcType="VARCHAR" />
     </resultMap>
-
     <select id="getAllTeachers" resultMap="teacherMap">
         SELECT Tnumber, Tname, teachfile
         FROM teacher
     </select>
+    
+    <update id="updatePlan">
+        UPDATE teacher
+        SET teachfile=#{url, jdbcType=VARCHAR}
+        WHERE Tnumber=#{username, jdbcType=VARCHAR}
+    </update>
+
+    <update id="deletePlan">
+        UPDATE teacher
+        SET teachfile=''
+        WHERE Tnumber=#{username}
+    </update>
 </mapper>

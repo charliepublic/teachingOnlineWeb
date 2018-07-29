@@ -7,9 +7,7 @@ import com.aneon.service.TeachPlanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
 @Service
 public class TeachPlanServiceImpl implements TeachPlanService {
@@ -24,16 +22,31 @@ public class TeachPlanServiceImpl implements TeachPlanService {
             String planName;
             for (Teacher teacher: teachers) {
                 if(!teacher.getTeachFile().equals("")) {
-                    StringTokenizer tz = new StringTokenizer(teacher.getTeachFile(), "/");
+                    StringTokenizer tz = new StringTokenizer(teacher.getTeachFile(), "\\");
                     int i = 0;
                     while (i < tz.countTokens() - 1)
                         tz.nextToken();
                     planName = tz.nextToken();
-                    teachPlans.add(new TeachPlan(planName, teacher.getName(), teacher.getTeachFile()));
+                    teachPlans.add(new TeachPlan(teacher.getUsername(), planName, teacher.getName(), teacher.getTeachFile()));
                 }
             }
             return teachPlans;
         }
         return null;
+    }
+
+    @Override
+    public int updatePlan(String username, String url) {
+        Map<String ,Object> plan = new HashMap<>();
+        plan.put("username", username);
+        plan.put("url", url);
+        return teacherMapper.updatePlan(plan);
+    }
+
+    @Override
+    public int deletePlan(String id) {
+        Map<String, Object> delete = new HashMap<>();
+        delete.put("username", id);
+        return teacherMapper.deletePlan(delete);
     }
 }

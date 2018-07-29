@@ -1,14 +1,24 @@
 package com.aneon.po;
 
 public class TeachPlan {
+    private String teacherId;
     private String planName;
     private String teacherName;
     private String URL;
 
-    public TeachPlan(String planName, String teacherName, String URL) {
+    public TeachPlan(String teacherId, String planName, String teacherName, String URL) {
+        this.teacherId = teacherId;
         this.planName = planName;
         this.teacherName = teacherName;
         this.URL = URL;
+    }
+
+    public String getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(String teacherId) {
+        this.teacherId = teacherId;
     }
 
     public String getPlanName() {
@@ -35,11 +45,4 @@ public class TeachPlan {
         this.URL = URL;
     }
 
-    @Override
-    public String toString() {
-        return "TeachPlan {" +
-                "planName='" + planName +
-                "' teacherName='" + teacherName +
-                "' URL='" + URL + "'}";
-    }
 }
