@@ -1,81 +1,128 @@
 <%@ page import="com.aneon.po.User" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Tosit教学管理系统</title>
 
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+      <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-    <title>Jumbotron Template for Bootstrap</title>
+      <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="resources/css/bootstrap-theme.min.css">
+      <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="resources/css/tooplate-style.css">
+    </head>
+    <body onload="check(); return false;">
+    <script>
+      function check() {
+          <%  User user = (User)session.getAttribute("User");
+              if(user != null) { %>
+                $("#zh").css("display","none");
+                $("#mm").css("display","none");
+                $("#loginBtn").css("display","none");
+                $("#name").html('<%=  user.getName() %>');
+                $("#hello").css("display","inline");
+                $("#backend").css("display","inline");
+          <%  } %>
+      }
+    </script>
 
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-
-
-</head>
-
-<body>
-
-<!-- 顶部导航栏 -->
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
-    <div class="container">
+    <!-- 顶部导航栏 -->
+    <nav class="navbar navbar-expand-lg bg-light navbar-light">
+      <div class="container-fluid">
         <a class="navbar-brand" href="#">TOSIT学员管理系统</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
         <form class="form-inline my-2 my-lg-0" id="navbarNavDropdown">
-              <input type="text" placeholder="用户名" name="zh" id="zh" class="form-control mr-sm-2 ">
-              <input type="password" placeholder="密码" name="mm" id="mm" class="form-control mr-sm-2">
-              <button class="btn btn-success" onclick="login(); return false;" id="loginBtn">登录</button>
-              <a class="text-light " id="hello" style="display: none"><span id="name"></span>，您好</a>
-              <a class="text-light ml-sm-2" id="backend" href="pages/backend.jsp" style="display: none">进入后台</a>
+          <input type="text" placeholder="用户名" name="zh" id="zh" class="form-control mr-sm-2 ">
+          <input type="password" placeholder="密码" name="mm" id="mm" class="form-control mr-sm-2">
+          <button class="btn btn-secondary" onclick="login(); return false;" id="loginBtn">登录</button>
+          <a class="text-dark " id="hello" style="display: none"><span id="name"></span>，您好</a>
+          <a class="text-dark ml-sm-2" id="backend" href="pages/backend.jsp" style="display: none">进入后台</a>
         </form>
-    </div>
-</nav>
+      </div>
+    </nav>
 
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-    <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-    </div>
-</div>
+        <section class="first-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="text-content">
+                  <h2>Welcome To Tosit</h2>
+                  <div class="line-dec"></div>
+                  <span>这是一个简单易用的教学系统</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-<div class="container">
+        <section class="second-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3 col-sm-6">
+                <div class="service-item">
+                  <div class="icon">
+                    <img src="resources/img/first-icon.png" alt="">
+                  </div>
+                  <h4>Quick Editing</h4>
+                  <p>Aliquam ex velit, viverra eu tristique vel, rhoncus nec ligula. In vel massa sed dolor pharetra interdum vitae posuere.</p>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="service-item">
+                  <div class="icon">
+                    <img src="resources/img/second-icon.png" alt="">
+                  </div>
+                  <h4>Responsive Layout</h4>
+                  <p>Sed pulvinar ipsum id leo volutpat, in convallis lectus molestie. Aliquam nisi sapien, faucibus eu consequat id, egestas vitae augue.</p>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="service-item">
+                  <div class="icon">
+                    <img src="resources/img/third-icon.png" alt="">
+                  </div>
+                  <h4>Quick Support</h4>
+                  <p>Aliquam ex velit, viverra eu tristique vel, rhoncus nec ligula. In vel massa sed dolor pharetra interdum vitae posuere.</p>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="service-item">
+                  <div class="icon">
+                    <img src="resources/img/fourth-icon.png" alt="">
+                  </div>
+                  <h4>Voice Chat</h4>
+                  <p>Sed pulvinar ipsum id leo volutpat, in convallis lectus molestie. Aliquam nisi sapien, faucibus eu consequat id, egestas vitae augue.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-    <hr>
+        <footer>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <ul>
+                  <li><a href="https://github.com/charliepublic/Stupid"><i class="fa fa-github"></i></a></li>
+                </ul>
+                <p>Copyright &copy; 2018 四只小猪</p>
+              </div>
+            </div>
+          </div>
+        </footer>
 
-    <footer>
-        <p>&copy; 2018 四只小猪, Inc.</p>
-    </footer>
-</div> <!-- /container -->
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
+        <script src="resources/js/index.js"></script>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-
-<!-- 自己的js代码 -->
-<script src="resources/js/index.js"></script>
-
-</body>
+    </body>
 </html>
-
-<%--<html>--%>
-<%--<head>--%>
-<%--<script src="resources/lib/layui/layui.js"></script>--%>
-<%--</head>--%>
-<%--<body>--%>
-
-<%--</body>--%>
-<%--</html>--%>

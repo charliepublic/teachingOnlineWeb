@@ -36,8 +36,7 @@ public class FileUtils {
                         e.printStackTrace();
                         return "";
                     }
-                    resourcePath = resourcePath.replaceAll("/", "\\");
-                    return resourcePath + user.getUsername() + "\\" + multipartFile.getOriginalFilename();
+                    return resourcePath + "/" + user.getUsername() + "/" + multipartFile.getOriginalFilename();
                 }
             }
         }
