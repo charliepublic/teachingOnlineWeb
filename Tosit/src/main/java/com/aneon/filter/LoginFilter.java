@@ -17,7 +17,7 @@ public class LoginFilter implements Filter {
         HttpServletResponse httpServletResponse = (HttpServletResponse)response;
         String url = httpServletRequest.getRequestURL().toString();
 
-        if(url.contains("/index.jsp") || url.contains("/loginAction.do") || url.contains("/resources/")) {
+        if(url.contains("/index.jsp") || url.contains("loginAction.do")||url.contains("/resources/")) {
             chain.doFilter(request, response);
             return;
         }

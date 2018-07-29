@@ -1,11 +1,11 @@
 package com.aneon.service.Impl;
 
-import com.aneon.mapper.Stu_file_libMapper;
-import com.aneon.mapper.Teacher_file_libMapper;
 import com.aneon.po.Stu_file_lib;
 import com.aneon.po.Teacher_file_lib;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.aneon.service.*;
+import com.aneon.mapper.*;
 
 import java.util.HashMap;
 import java.util.List;

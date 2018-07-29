@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <br>
+        <div class="header clearfix">
+            <h3 class="text-muted" style="margin-left: 15px">文档评分</h3>
+        </div>
+        <br>
+        <div class="container">
+            <div id="project1" class="container-fluid  border" style="padding-top:70px;padding-bottom:70px">
+                <div class="container">
+                    <form class="form-inline">
+                        <p style="font-weight: bold;margin-right: 10px">项目名称：</p>
+                        <p style="margin-right: 10px">Project-name</p>
+                        <p style="font-weight: bold;float: right; margin-right: 10px">项目策划人：</p>
+                        <p style="margin-right: 10px">Person-name</p>
+                    </form>
+                    <p style="font-weight: bold">项目描述:</p>
+                    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+
+                    <button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#GiveMark">评分</button>
+
+
+
+                </div>
+
+            </div>
+            
+            <div id="project2" class="container-fluid  border" style="padding-top:70px;padding-bottom:70px">
+                <div class="container">
+                    <form class="form-inline">
+                        <p style="font-weight: bold;margin-right: 10px">项目名称：</p>
+                        <p style="margin-right: 10px">Project-name</p>
+                        <p style="font-weight: bold;float: right; margin-right: 10px">项目策划人：</p>
+                        <p style="margin-right: 10px">Person-name</p>
+                    </form>
+                    <p style="font-weight: bold">项目描述:</p>
+                    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+
+                    <button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#GiveMark">评分</button>
+
+                </div>
+
+            </div>
+
+            <div id="project3" class="container-fluid  border" style="padding-top:70px;padding-bottom:70px">
+                <div class="container">
+                    <form class="form-inline">
+                        <p style="font-weight: bold;margin-right: 10px">项目名称：</p>
+                        <p style="margin-right: 10px">Project-name</p>
+                        <p style="font-weight: bold;float: right; margin-right: 10px">项目策划人：</p>
+                        <p style="margin-right: 10px">Person-name</p>
+                    </form>
+                    <p style="font-weight: bold">项目描述:</p>
+                    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+
+                    <button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#GiveMark">评分</button>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container left-arrow-button">
+        <ul class="pagination style='right'">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item "><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </div>
+
+
+</body>
+<!-- 模态框 -->
+<div class="modal fade" id="GiveMark">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h5 class="modal-title">输入你的分数</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+                <div>
+                    <span class="input-group-text">范围1~100</span>
+                </div>
+                <input type="text" value="" class="form-control">
+                <!--改value 从数据库 获取 初始分数-->
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</html>

@@ -3,11 +3,11 @@ package com.aneon.mapper;
 import java.util.List;
 
 public interface ClassMapper {
-    void saveClass(Class cls);
+    int saveClass(Class cls);
 
-    boolean updateClass(Class cls);
+    int updateClass(Class cls);
 
-    boolean deleteClass(int cnumber);
+    int deleteClass(int cnumber);
 
     Class findCalss(int cnumber);
 
