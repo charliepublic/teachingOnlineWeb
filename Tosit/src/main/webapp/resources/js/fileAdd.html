@@ -1,0 +1,96 @@
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container">
+    <div class="container " >
+        <form id = "getFileName" action="/searchTeacherFile.do" method="post" onsubmit="return searchFile();" >
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="search" name="search" placeholder="请输入搜索的内容......" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" onclick="searchFile();">搜索</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <!--    <form class="form-inline">
+            <div class="container">
+                <input  class="form-control" id="" placeholder="输入文件名称进行搜索">
+                <button type="submit" class="btn btn-primary" onclick="">查询</button>   这里添加点击相应事件（搜索文件）
+                <button type="button"  class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal" >添加文件</button>
+            </div>
+        </form>
+    -->
+    <!-- 模态框 -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h4 class="modal-title">添加文件</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- 模态框主体 -->
+                <div class="modal-body">
+                    <input type="file" name="fileName" />
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="fileDetail" name="fileDetail" placeholder="请输入文档描述......" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" onclick="">添加</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 模态框底部 -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container" id="showFile">
+        <div id="section1" class="container-fluid  border" style="padding-top:70px;padding-bottom:70px">
+            <div class="container form-inline">
+                        <a class="font-weight-bold"  download="">Section 1</a> <h6 style="float: contour" >提交者：&nbsp;&nbsp;</h6>
+            </div>
+            <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+            <button type="submit"  class="btn btn-primary float-left" onclick="">修改描述</button>
+            <button type="submit"  class="btn btn-primary float-right" onclick="">删除</button>
+        </div>
+
+    </div>
+
+    <div class="container left-arrow-button">
+        <ul class="pagination style='right'">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item "><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+        <button type="button"  class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal" >添加文件</button>
+    </div>
+
+</div>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <script src="/resources/js/fileChange.js"></script>
+<script src="/resources/js/onLoadFileForChange.js"></script>
+
+</body>
+</html>

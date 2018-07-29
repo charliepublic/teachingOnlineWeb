@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.aneon.mapper.Class_projectMapper">
+<mapper namespace="com.aneon.mapper.class_projectMapper">
     <resultMap id="class_projectMapper" type="com.aneon.po.Class_project">
         <id column="Cnumber" property="Cnumber" jdbcType="INTEGER"/>
         <id column="Pnumber" property="Pnumber" jdbcType="INTEGER"/>
@@ -25,7 +25,7 @@
         where Pnumber = #{Pnumber}
     </select>
 
-    <insert id="addClass_project" parameterType="com.aneon.po.Class_project">
+    <insert id="addClass_project">
         insert into class_project
         ( Cnumber,Pnumber)
         values  (#{Cnumber},#{Pnumber})

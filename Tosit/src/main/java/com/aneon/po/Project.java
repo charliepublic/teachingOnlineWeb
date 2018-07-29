@@ -1,21 +1,19 @@
 package com.aneon.po;
 
 public class Project {
-    private int Pnumber;
+    private String Pnumber;
     private String Pname;
     private int UpTime;
     private String Info;
-    private int isPass;
+    private int isPass = 0;
 
     public Project(String pname, int upTime, String info) {
-
-        this.isPass=0;
         Pname = pname;
         UpTime = upTime;
         Info = info;
     }
 
-    public int getPnumber() {
+    public String getPnumber() {
         return Pnumber;
     }
 

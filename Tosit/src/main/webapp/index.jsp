@@ -1,5 +1,6 @@
 <%@ page import="com.aneon.po.User" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -29,23 +30,12 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <form class="form-inline my-2 my-lg-0" action="/loginAction.do" method="post" id="navbarNavDropdown" onsubmit="return login();">
-
-            <% User user = (User)session.getAttribute("User");
-               String correctUser = (String)session.getAttribute("CorrectUser");
-               if(correctUser != null) { %>
-                    <script>
-                        window.alert("用户名或密码错误！");
-                    </script>
-               <% } %>
-                <% if(user == null) { %>
-                    <input type="text" placeholder="用户名" name="zh" class="form-control mr-sm-2 ">
-                    <input type="password" placeholder="密码" name="mm" class="form-control mr-sm-2">
-                    <button class="btn btn-success" onclick="login(); return false;">登录</button>
-            <% } else { %>
-                    <a class="text-light "><%= user.getName() %>，您好</a>
-                    <a class="text-light ml-sm-2" href="pages/backend.jsp">进入后台</a>
-            <% } %>
+        <form class="form-inline my-2 my-lg-0" id="navbarNavDropdown">
+              <input type="text" placeholder="用户名" name="zh" id="zh" class="form-control mr-sm-2 ">
+              <input type="password" placeholder="密码" name="mm" id="mm" class="form-control mr-sm-2">
+              <button class="btn btn-success" onclick="login(); return false;" id="loginBtn">登录</button>
+              <a class="text-light " id="hello" style="display: none"><span id="name"></span>，您好</a>
+              <a class="text-light ml-sm-2" id="backend" href="pages/backend.jsp" style="display: none">进入后台</a>
         </form>
     </div>
 </nav>
@@ -81,3 +71,11 @@
 </body>
 </html>
 
+<%--<html>--%>
+<%--<head>--%>
+<%--<script src="resources/lib/layui/layui.js"></script>--%>
+<%--</head>--%>
+<%--<body>--%>
+
+<%--</body>--%>
+<%--</html>--%>

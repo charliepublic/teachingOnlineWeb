@@ -1,14 +1,14 @@
 package com.aneon.controller;
 
+import com.aneon.po.Stu_file_lib;
+import com.aneon.po.Teacher_file_lib;
+import com.aneon.po.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.aneon.service.*;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-import com.aneon.po.*;
-import javax.servlet.http.HttpServletRequest;
+
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import java.util.List;
 @Controller
 public class fileController {
     @Autowired
-    fileService fileService;
+    com.aneon.service.fileService fileService;
     @RequestMapping(value = "/searchTeacherFile.do", produces = "text/html;charset=UTF-8")
     public @ResponseBody
     String searchTeacherFile(String fileName,HttpServletResponse response ) {

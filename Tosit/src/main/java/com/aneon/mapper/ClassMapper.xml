@@ -10,11 +10,11 @@
         <result column="Cname" property="Cname" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <insert id="saveClass" parameterType="com.aneon.po.Class">
+    <insert id="saveClass">
         insert into class(Cname) values (#{Cname})
     </insert>
     
-    <update id="updateClass" parameterType="com.aneon.po.Class">
+    <update id="updateClass">
         update class set Cname=#{Cname} where Cnumber=#{Cnumber}
     </update>
 
@@ -22,7 +22,7 @@
         delete from class where Cnumber=#{Cnumber}
     </delete>
 
-    <select id="findClass" resultMap="classMapper">
+    <select id="findClass" resultMap="Class">
         select * from class where Cnumber=#{Cnumber}
     </select>
 

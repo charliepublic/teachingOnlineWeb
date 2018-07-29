@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface StudentMapper {
     Student selectStudent(String Snumber);
-    int addStudent(Student student);
-    int updateStudent(Student student);
+    boolean addStudent(Student student);
+    boolean updateStudent(Student student);
     List<Student> getAllStudent();
  }

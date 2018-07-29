@@ -21,12 +21,12 @@
         where Snumber = #{Snumber,jdbcType = VARCHAR}
     </select>
     
-    <insert id="addStudent" parameterType="com.aneon.po.Student">
+    <insert id="addStudent">
         insert into student (Snumber,Sname,Spass)
         values (#{Snumber,jdbcType=VARCHAR},#{Sname,jdbcType = VARCHAR},#{Spass,jdbcType = VARCHAR})
     </insert>
     
-    <update id="updateStudent" parameterType="com.aneon.po.Student">
+    <update id="updateStudent">
         update student
         set
           Sname = #{Sname,jdbcType = VARCHAR},

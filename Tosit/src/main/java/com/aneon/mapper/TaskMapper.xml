@@ -24,7 +24,7 @@
         where TName = #{Tname}
     </delete>
 
-    <insert id="addTask" parameterType="com.aneon.po.Task">
+    <insert id="addTask">
         insert into task
         (TaskName,starTime,endTime,Tnumber,Cnumber,detail)
         values (#{TasjName,jdbcType = VARCHAR},#{starTime,jdbcType = DATE},#{endTime,jdbcType = DATE},#{Tnumber，jdbcType = VARCHAR},#{Cnumber,jdbcType = INTEGER},#{detail,jdbcType= VARCHAR})

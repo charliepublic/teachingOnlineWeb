@@ -7,7 +7,7 @@ import com.aneon.po.Teacher;
 import java.util.Map;
 
 public interface UserMapper {
-    Student selectStudent();
-    Teacher selectTeacher();
+    Student selectStudent(Map<String, Object> a);
+    Teacher selectTeacher(Map<String, Object> a);
     RootManager selectAdmin(Map<String, Object> a);
 }

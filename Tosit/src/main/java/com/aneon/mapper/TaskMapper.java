@@ -5,10 +5,10 @@ import com.aneon.po.Task;
 import java.util.List;
 
 public interface TaskMapper {
-    int addTask(Task task);
+    boolean addTask(Task task);
     List<Task> getAllTask();
     Task getTaskByName(String TaskName);
-    int deletTask(String TaskName);
-    int updataTask(Task task);
+    boolean deletTask(String TaskName);
+    boolean updataTask(Task task);
 
 }
