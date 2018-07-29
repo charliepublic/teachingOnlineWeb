@@ -1,3 +1,4 @@
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -5,44 +6,25 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
 </head>
 
-<body>
+<body onload="onLoadFileForShow();return false;">
 <div class="container">
-    <form class="form-inline">
-        <div class="container">
-            <input  class="form-control" id="search" placeholder="输入文件名称进行搜索">
-            <button type="submit" class="btn btn-primary" onclick="">查询</button>  <!-- 这里添加点击相应事件（搜索文件）   -->
-        </div>
-    </form>
-
-
     <div class="container">
-        <div  class="container-fluid  border" style="padding-top:70px;padding-bottom:70px">
-            <div class="container">
-                <form class="form-inline">
-                    <a class="font-weight-bold" href="" download="">Section 1</a> <h6 style="float: contour" >提交者：&nbsp;&nbsp;</h6>
-                    <h6 style="float: left">提交时间：&nbsp;&nbsp;</h6> <!--增加提交者 提交时间信息-->
-
-                </form>
+        <form id = "getFileName" action="/searchTeacherFile.do" method="post" onsubmit="return searchFile();" >
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="search" name="search" placeholder="请输入搜索的内容......" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" onclick="searchFile();">搜索</button>
+                </div>
             </div>
-            <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+        </form>
+    </div>
 
-        </div>
+
+    <div class="container" id = "showFile" >
         <div  class="container-fluid  border" style="padding-top:70px;padding-bottom:70px">
             <div class="container">
                 <form class="form-inline">
                     <a class="font-weight-bold" href="" download="">Section 1</a> <h6 style="float: contour" >提交者：&nbsp;&nbsp;</h6>
-                    <h6 style="float: left">提交时间：&nbsp;&nbsp;</h6> <!--增加提交者 提交时间信息-->
-
-                </form>
-            </div>
-            <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-
-        </div>
-        <div  class="container-fluid  border" style="padding-top:70px;padding-bottom:70px">
-            <div class="container">
-                <form class="form-inline">
-                    <a class="font-weight-bold" href="" download="">Section 1</a> <h6 style="float: contour" >提交者：&nbsp;&nbsp;</h6>
-                    <h6 style="float: left">提交时间：&nbsp;&nbsp;</h6> <!--增加提交者 提交时间信息-->
 
                 </form>
             </div>
@@ -65,6 +47,10 @@
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+
+<script src="../../resources/js/searchFile.js"></script>
+<script src="../../resources/js/onLoadFileForShow.js"></script>
 
 </body>
 </html>

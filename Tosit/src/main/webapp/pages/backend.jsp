@@ -1,3 +1,4 @@
+<%@ page import="com.aneon.po.User" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
@@ -15,7 +16,8 @@
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
-                    贤心
+                    <% User user = (User)session.getAttribute("User"); %>
+                    <%= user.getName() %>
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="">基本资料</a></dd>
@@ -51,7 +53,7 @@
                         <dd><a href="javascript:;" data-url="studentManage/student.html">学员管理</a></dd>
                         <dd><a href="javascript:;" data-url="studentManage/Tclass.html">班级管理</a></dd>
                         <dd><a href="javascript:;" data-url="studentManage/classDVD.html">分班信息</a></dd>
-                        <dd><a href="javascript:;" data-url="studentManage/classinfo.html">分组信息</a></dd>
+                        <dd><a href="javascript:;" name="jdfod" data-url="studentManage/classInfo.html">分组信息</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
