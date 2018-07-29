@@ -11,6 +11,8 @@ public class User {
         this.identify = identify;
     }
 
+    public User() {}
+
     public Identify getIdentify() {
         return identify;
     }
