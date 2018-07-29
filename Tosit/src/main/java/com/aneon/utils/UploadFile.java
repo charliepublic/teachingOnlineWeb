@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
-public class uploadFile {
+public class UploadFile {
 
     public static boolean saveToLocal(HttpServletRequest request, HttpSession session, String resourcePath) {
         if (request instanceof MultipartHttpServletRequest) {
