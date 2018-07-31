@@ -13,7 +13,7 @@
         <result column="detail" property="detail" jdbcType="VARCHAR"/>
     </resultMap>
     <insert id="saveFile" parameterType="com.aneon.po.Teacher_file_lib">
-        insert into teacher_file-lib(filename,furl,Tnumber,Pnumber,detail) values (#{filename},#{furl},#{Tnumber},#{Pnumber},#{detail})
+        insert into teacher_file_lib(filename,furl,Tnumber,Pnumber,detail) values (#{filename},#{furl},#{Tnumber},#{Pnumber},#{detail})
     </insert>
 
     <update id="updateFile" parameterType="com.aneon.po.Teacher_file_lib">
