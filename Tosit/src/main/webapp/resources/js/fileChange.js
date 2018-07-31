@@ -23,15 +23,45 @@ function searchFile() {
                 content += "<div  class=\"container-fluid  border\" style=\"padding-top:70px;padding-bottom:70px\">\n" +
                     "            <div class=\"container\">\n" +
                     "                <div class=\"form-inline\">\n" +
-                    "                    <a  href=\""+arr[i].furl+ "\">"+arr[i].filename+"</a> <h6 style=\"float: contour\" >提交者："+arr[i].tnumber +"</h6>\n" +
-                    "\n" +
+                    "                    <a   href=\""+arr[i].furl+ "\">"+arr[i].filename+"</a> " +
+                    "                    <h6 style=\"float: contour\" >提交者："+arr[i].tnumber +"</h6>\n" +
                     "                </div>\n" +
                     "            </div>\n" +
-                    "            <p>"+arr[i].detail+"</p>"+"<button type=\"submit\"  class=\"btn btn-primary float-left\" onclick=\"\">修改描述</button>\n" +
-                    "            <button type=\"submit\"  class=\"btn btn-primary float-right\" onclick=\"deleteFile()\">删除</button>" +
-                    "       </div>"
+                    "            <p>"+arr[i].detail+"</p>"+"<button type=\"button\"  class=\"btn btn-primary float-left\" " +
+                    "data-toggle=\"modal\" data-target=\"#addDetail"+i+"\">修改描述</button>\n" +
+                    "            <button   type=\"submit\"  class=\"btn btn-primary float-right\"" +
+                    " onclick=\"deleteFile('"+arr[i].furl+"')\">删除</button></div>"
+                    +   "<div class=\"modal fade\" id=\"addDetail"+i+"\">\n" +
+                    "        <div class=\"modal-dialog\">\n" +
+                    "            <div class=\"modal-content\">\n" +
+                    "\n" +
+                    "                <!-- 模态框头部 -->\n" +
+                    "                <div class=\"modal-header\">\n" +
+                    "                    <h4 class=\"modal-title\">修改描述</h4>\n" +
+                    "                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n" +
+                    "                </div>\n" +
+                    "\n" +
+                    "                <!-- 模态框主体 -->\n" +
+                    "                <div class=\"modal-body\">\n" +
+                    "                    <div class=\"input-group mb-3\">\n" +
+                    "                        <input type=\"text\" class=\"form-control\" id=\""+arr[i].furl+"\" \n" +
+                    "                               placeholder=\"请输入文档描述......\" aria-label=\"Recipient's username\"\n" +
+                    "                               aria-describedby=\"button-addon2\">\n" +
+                    "                        <div class=\"input-group-append\">\n" +
+                    "                            <button class=\"btn btn-primary\" type=\"button\" onclick=\"changeDetail('"+arr[i].furl+"')\">修改</button>\n" +
+                    "                        </div>\n" +
+                    "                    </div>\n" +
+                    "                </div>\n" +
+                    "\n" +
+                    "                <!-- 模态框底部 -->\n" +
+                    "                <div class=\"modal-footer\">\n" +
+                    "                    <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">关闭</button>\n" +
+                    "                </div>\n" +
+                    "\n" +
+                    "            </div>\n" +
+                    "        </div>\n" +
+                    "    </div>"
                 ;
-            }
             $('#showFile').html(content);
         }
     })
@@ -57,8 +87,40 @@ function onLoadFileForShow() {
                     "                    <h6 style=\"float: contour\" >提交者："+arr[i].tnumber +"</h6>\n" +
                     "                </div>\n" +
                     "            </div>\n" +
-                    "            <p>"+arr[i].detail+"</p>"+"<button type=\"button\"  class=\"btn btn-primary float-left\" data-toggle=\"modal\" data-target=\"#addDetail\">修改描述</button>\n" +
-                    "            <button  id='"+ arr[i].furl +"' type=\"submit\"  class=\"btn btn-primary float-right\" onclick=\"deleteFile('"+arr[i].furl+"')\">删除</button></div>"
+                    "            <p>"+arr[i].detail+"</p>"+"<button type=\"button\"  class=\"btn btn-primary float-left\" " +
+                    "data-toggle=\"modal\" data-target=\"#addDetail"+i+"\">修改描述</button>\n" +
+                    "            <button   type=\"submit\"  class=\"btn btn-primary float-right\"" +
+                    " onclick=\"deleteFile('"+arr[i].furl+"')\">删除</button></div>"
+                +   "<div class=\"modal fade\" id=\"addDetail"+i+"\">\n" +
+                    "        <div class=\"modal-dialog\">\n" +
+                    "            <div class=\"modal-content\">\n" +
+                    "\n" +
+                    "                <!-- 模态框头部 -->\n" +
+                    "                <div class=\"modal-header\">\n" +
+                    "                    <h4 class=\"modal-title\">修改描述</h4>\n" +
+                    "                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n" +
+                    "                </div>\n" +
+                    "\n" +
+                    "                <!-- 模态框主体 -->\n" +
+                    "                <div class=\"modal-body\">\n" +
+                    "                    <div class=\"input-group mb-3\">\n" +
+                    "                        <input type=\"text\" class=\"form-control\" id=\""+arr[i].furl+"\" \n" +
+                    "                               placeholder=\"请输入文档描述......\" aria-label=\"Recipient's username\"\n" +
+                    "                               aria-describedby=\"button-addon2\">\n" +
+                    "                        <div class=\"input-group-append\">\n" +
+                    "                            <button class=\"btn btn-primary\" type=\"button\" onclick=\"changeDetail('"+arr[i].furl+"')\">修改</button>\n" +
+                    "                        </div>\n" +
+                    "                    </div>\n" +
+                    "                </div>\n" +
+                    "\n" +
+                    "                <!-- 模态框底部 -->\n" +
+                    "                <div class=\"modal-footer\">\n" +
+                    "                    <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">关闭</button>\n" +
+                    "                </div>\n" +
+                    "\n" +
+                    "            </div>\n" +
+                    "        </div>\n" +
+                    "    </div>"
                 ;
             }
             $('#showFile').html(content);
@@ -81,11 +143,14 @@ function deleteFile( furl) {
 }
 
 function changeDetail(furl) {
+    var newDetail = document.getElementById(furl).value;
+   // alert(furl);
     $.ajax({
         type: 'get',
         url: '/onChangeDetail.do',
         data: {
-            furl:furl
+            furl:furl,
+            newDetail:newDetail
         },
         dataType: 'json',
     })

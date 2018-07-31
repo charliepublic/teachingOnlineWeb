@@ -27,8 +27,9 @@ public class fileServiceImpl implements fileService {
     }
 
     @Override
-    public int updataStudentFile(String furl) {
+    public int updataStudentFile(String furl ,String newDetail) {
         Stu_file_lib stu_file_lib = this.getStudentFileByfurl(furl);
+        stu_file_lib.setDetail(newDetail);
         return stu_file_libMapper.updateFile(stu_file_lib);
     }
 
@@ -53,8 +54,9 @@ public class fileServiceImpl implements fileService {
     }
 
     @Override
-    public int updataTeacherFile(String furl) {
+    public int updataTeacherFile(String furl,String newDetail) {
         Teacher_file_lib teacher_file_lib = this.getTeacherFileByFurl(furl);
+        teacher_file_lib.setDetail(newDetail);
         return teacher_file_libMapper.updateFile(teacher_file_lib);
     }
 

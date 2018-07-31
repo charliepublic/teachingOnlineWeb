@@ -88,7 +88,7 @@ public class fileController {
     ///onChangeDetail.do
     @RequestMapping(value = "/onChangeDetail.do", produces = "text/html;charset=UTF-8")
     public  @ResponseBody
-    void changeDetail(String furl,HttpServletResponse response,HttpSession httpSession){
+    void changeDetail(String furl,String newDetail,HttpServletResponse response,HttpSession httpSession){
         response.setHeader("Cache-Control", "no-cache");
         response.setContentType("text/json;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
@@ -96,9 +96,9 @@ public class fileController {
         User user = (User)httpSession.getAttribute("User");
         String userName = user.getUsername();
         if(userName.length() == 10 || userName.length() == 12)
-            fileService.updataTeacherFile(furl);
+            fileService.updataTeacherFile(furl,newDetail);
         if(userName.length() == 14)
-            fileService.updataStudentFile(furl);
+            fileService.updataStudentFile(furl,newDetail);
 
     }
 }
