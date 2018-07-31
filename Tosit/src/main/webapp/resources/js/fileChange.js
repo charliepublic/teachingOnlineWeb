@@ -23,15 +23,15 @@ function searchFile() {
                 content += "<div  class=\"container-fluid  border\" style=\"padding-top:70px;padding-bottom:70px\">\n" +
                     "            <div class=\"container\">\n" +
                     "                <div class=\"form-inline\">\n" +
-                    "                    <a   href=\""+arr[i].furl+ "\">"+arr[i].filename+"</a> " +
-                    "                    <h6 style=\"float: contour\" >提交者："+arr[i].tnumber +"</h6>\n" +
+                    "                    <a   href=\"" + arr[i].furl + "\">" + arr[i].filename + "</a> " +
+                    "                    <h6 style=\"float: contour\" >提交者：" + arr[i].tnumber + "</h6>\n" +
                     "                </div>\n" +
                     "            </div>\n" +
-                    "            <p>"+arr[i].detail+"</p>"+"<button type=\"button\"  class=\"btn btn-primary float-left\" " +
-                    "data-toggle=\"modal\" data-target=\"#addDetail"+i+"\">修改描述</button>\n" +
+                    "            <p>" + arr[i].detail + "</p>" + "<button type=\"button\"  class=\"btn btn-primary float-left\" " +
+                    "data-toggle=\"modal\" data-target=\"#addDetail" + i + "\">修改描述</button>\n" +
                     "            <button   type=\"submit\"  class=\"btn btn-primary float-right\"" +
-                    " onclick=\"deleteFile('"+arr[i].furl+"')\">删除</button></div>"
-                    +   "<div class=\"modal fade\" id=\"addDetail"+i+"\">\n" +
+                    " onclick=\"deleteFile('" + arr[i].furl + "')\">删除</button></div>"
+                    + "<div class=\"modal fade\" id=\"addDetail" + i + "\">\n" +
                     "        <div class=\"modal-dialog\">\n" +
                     "            <div class=\"modal-content\">\n" +
                     "\n" +
@@ -44,11 +44,11 @@ function searchFile() {
                     "                <!-- 模态框主体 -->\n" +
                     "                <div class=\"modal-body\">\n" +
                     "                    <div class=\"input-group mb-3\">\n" +
-                    "                        <input type=\"text\" class=\"form-control\" id=\""+arr[i].furl+"\" \n" +
+                    "                        <input type=\"text\" class=\"form-control\" id=\"" + arr[i].furl + "\" \n" +
                     "                               placeholder=\"请输入文档描述......\" aria-label=\"Recipient's username\"\n" +
                     "                               aria-describedby=\"button-addon2\">\n" +
                     "                        <div class=\"input-group-append\">\n" +
-                    "                            <button class=\"btn btn-primary\" type=\"button\" onclick=\"changeDetail('"+arr[i].furl+"')\">修改</button>\n" +
+                    "                            <button class=\"btn btn-primary\" type=\"button\" onclick=\"changeDetail('" + arr[i].furl + "')\">修改</button>\n" +
                     "                        </div>\n" +
                     "                    </div>\n" +
                     "                </div>\n" +
@@ -62,11 +62,11 @@ function searchFile() {
                     "        </div>\n" +
                     "    </div>"
                 ;
-            $('#showFile').html(content);
+                $('#showFile').html(content);
+            }
         }
+
     })
-
-
 }
 
 function onLoadFileForShow() {
@@ -154,6 +154,22 @@ function changeDetail(furl) {
         },
         dataType: 'json',
     })
-    onLoadFileForShow();
+    window.location.reload();
+}
+
+function addNewFile() {
+    var file = document.getElementById("fileName");
+    var Pnumber = document.getElementById("Pnumber");
+    var fileDetail = document.getElementById("fileDetail");
+    $.ajax({
+        type: 'get',
+        url: '/addFile.do',
+        data: {
+            file:file,
+            fileDetail:fileDetail,
+            Pnumber:Pnumber
+        },
+        dataType: 'json',
+    })
     window.location.reload();
 }

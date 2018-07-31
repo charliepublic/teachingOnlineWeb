@@ -4,7 +4,7 @@ public class Teacher_file_lib {
     private String filename;
     private String furl;
     private String Tnumber;
-    private String Pnumber;
+    private int Pnumber;
     private String detail;
 
 
@@ -20,7 +20,7 @@ public class Teacher_file_lib {
         return Tnumber;
     }
 
-    public String getPnumber() {
+    public int getPnumber() {
         return Pnumber;
     }
 
@@ -40,7 +40,7 @@ public class Teacher_file_lib {
         Tnumber = tnumber;
     }
 
-    public void setPnumber(String pnumber) {
+    public void setPnumber(int pnumber) {
         Pnumber = pnumber;
     }
 

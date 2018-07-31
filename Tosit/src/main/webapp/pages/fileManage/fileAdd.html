@@ -19,15 +19,7 @@
         </form>
 
     </div>
-    <!--    <form class="form-inline">
-            <div class="container">
-                <input  class="form-control" id="" placeholder="输入文件名称进行搜索">
-                <button type="submit" class="btn btn-primary" onclick="">查询</button>   这里添加点击相应事件（搜索文件）
-                <button type="button"  class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal" >添加文件</button>
-            </div>
-        </form>
-    -->
-    <!-- 模态框 -->
+
     <div class="modal fade" id="myModal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -39,15 +31,16 @@
                 </div>
 
                 <!-- 模态框主体 -->
-                <div class="modal-body">
-                    <input type="file" name="fileName" />
+                <form  enctype="multipart/form-data" class="modal-body">
+                    <input id ="fileName" type="file" name="fileName" multiple="multiple" />
                     <div class="input-group mb-3">
+                        <input type="text" id="Pnumber" placeholder="请输入项目号......">
                         <input type="text" class="form-control" id="fileDetail" name="fileDetail" placeholder="请输入文档描述......" aria-label="Recipient's username" aria-describedby="button-addon2">
                         <div class="input-group-append">
-                            <button class="btn btn-primary" type="button" onclick="">添加</button>
+                            <button class="btn btn-primary" type="button" onclick="addNewFile();">添加</button>
                         </div>
                     </div>
-                </div>
+                </form>
 
                 <!-- 模态框底部 -->
                 <div class="modal-footer">
