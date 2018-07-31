@@ -18,7 +18,9 @@ public class FileUtils {
             // 获取上传的文件
             Map<String, MultipartFile> fileMap = multipartHttpServletRequest.getFileMap();
             for (Map.Entry<String, MultipartFile> entry : fileMap.entrySet()) {
+
                 MultipartFile multipartFile = entry.getValue();
+
                 if (multipartFile != null) {
                     String path = request.getServletContext().getRealPath(resourcePath) + "\\" + ((User) session.getAttribute("User")).getUsername();
                     String filePath = path + "\\" + multipartFile.getOriginalFilename();

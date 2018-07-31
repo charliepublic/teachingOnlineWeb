@@ -31,10 +31,10 @@
                 </div>
 
                 <!-- 模态框主体 -->
-                <form  enctype="multipart/form-data" class="modal-body">
+                <form  enctype="multipart/form-data" id="uploadForm" class="modal-body">
                     <input id ="fileName" type="file" name="fileName" multiple="multiple" />
                     <div class="input-group mb-3">
-                        <input type="text" id="Pnumber" placeholder="请输入项目号......">
+                        <input type="text" id="Pnumber" name="Pnumber" placeholder="请输入项目号......">
                         <input type="text" class="form-control" id="fileDetail" name="fileDetail" placeholder="请输入文档描述......" aria-label="Recipient's username" aria-describedby="button-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="button" onclick="addNewFile();">添加</button>

@@ -14,7 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
+
 import  com.aneon.utils.FileUtils;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Controller
 public class fileController {
@@ -107,49 +110,55 @@ public class fileController {
 
     @RequestMapping(value = "/addFile.do", produces = "text/html;charset=UTF-8")
     public  @ResponseBody
-    void addFile(HttpServletResponse response,HttpSession httpSession,HttpServletRequest httpServletRequest,
-                 @RequestParam("file") MultipartFile[] file,int Pnumber,String fileDetail){
-        if (file == null){
-            return;
-        }
+    void addFile(HttpServletResponse response,HttpSession httpSession,HttpServletRequest httpServletRequest) {
+
+
         response.setHeader("Cache-Control", "no-cache");
         response.setContentType("text/json;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
-        User user = (User)httpSession.getAttribute("User");
+        User user = (User) httpSession.getAttribute("User");
         String userName = user.getUsername();
-        String resourcePath = null;
-        if(userName.length() == 10 || userName.length() == 12)
-        {
+        String resourcePath ;
+        Map<String, String[]> map = httpServletRequest.getParameterMap();
+        String a =  map.get("Pnumber")[0];
+        int Pnumber = Integer.parseInt(a);
+        String fileDetail = map.get("fileDetail")[0];
+        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) httpServletRequest;
+        // 获取上传的文件
+        Map<String, MultipartFile> fileMap = multipartHttpServletRequest.getFileMap();
+        MultipartFile multipartFile = null;
+        for (Map.Entry<String, MultipartFile> entry : fileMap.entrySet()) {
+            multipartFile = entry.getValue();
+        }
+        //添加老师文件
+        if (userName.length() == 10 || userName.length() == 12) {
             resourcePath = "/files/teacherFiles";
-            String path = resourcePath+ "\\" + ((User) httpSession.getAttribute("User")).getUsername();
-            FileUtils.fileUpload(httpServletRequest,httpSession,resourcePath);
+            String path = resourcePath + "\\" + ((User) httpSession.getAttribute("User")).getUsername();
+            FileUtils.fileUpload(httpServletRequest, httpSession, resourcePath);
             Teacher_file_lib teacher_file_lib = new Teacher_file_lib();
-            for (MultipartFile newFile:file){
-                teacher_file_lib.setFilename(newFile.getOriginalFilename());
-                teacher_file_lib.setFurl(path + newFile.getOriginalFilename());
-                teacher_file_lib.setDetail(fileDetail);
-                teacher_file_lib.setPnumber(Pnumber);
-                teacher_file_lib.setTnumber(userName);
-                fileService.addTeacherFile(teacher_file_lib);
-            }
 
-        }
+            teacher_file_lib.setFilename(multipartFile.getOriginalFilename());
+            teacher_file_lib.setFurl(path + multipartFile.getOriginalFilename());
+            teacher_file_lib.setDetail(fileDetail);
+            teacher_file_lib.setPnumber(Pnumber);
+            teacher_file_lib.setTnumber(userName);
+            fileService.addTeacherFile(teacher_file_lib);
+            }
         // 添加学生文件
-        if(userName.length() == 14){
+        else if (userName.length() == 14) {
             resourcePath = "/files/studentFiles";
-            String path = resourcePath + "\\" +((User) httpSession.getAttribute("User")).getUsername();
-            FileUtils.fileUpload(httpServletRequest,httpSession,resourcePath);
+            String path = resourcePath + "\\" + ((User) httpSession.getAttribute("User")).getUsername();
+            FileUtils.fileUpload(httpServletRequest, httpSession, resourcePath);
             Stu_file_lib stu_file_lib = new Stu_file_lib();
-            for (MultipartFile newFile:file){
-                stu_file_lib.setFilename(newFile.getOriginalFilename());
-                stu_file_lib.setFurl(path + newFile.getOriginalFilename());
-                stu_file_lib.setDetail(fileDetail);
-                stu_file_lib.setPnumber(Pnumber);
-                stu_file_lib.setSnumber(userName);
-                fileService.addStudentFile(stu_file_lib);
-            }
+            stu_file_lib.setFilename(multipartFile.getOriginalFilename());
+            stu_file_lib.setFurl(path + multipartFile.getOriginalFilename());
+            stu_file_lib.setDetail(fileDetail);
+            stu_file_lib.setPnumber(Pnumber);
+            stu_file_lib.setSnumber(userName);
+            fileService.addStudentFile(stu_file_lib);
 
         }
+
 
 
     }

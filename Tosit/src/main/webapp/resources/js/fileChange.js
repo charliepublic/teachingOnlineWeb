@@ -158,18 +158,27 @@ function changeDetail(furl) {
 }
 
 function addNewFile() {
-    var file = document.getElementById("fileName");
-    var Pnumber = document.getElementById("Pnumber");
-    var fileDetail = document.getElementById("fileDetail");
+    var file = $("#fileName").val();
+    var Pnumber = $("#Pnumber").val();
+    var fileDetail = $("#fileDetail").val();
+    var form = new FormData($('#uploadForm')[0]);
+
     $.ajax({
-        type: 'get',
+        type: 'post',
         url: '/addFile.do',
-        data: {
-            file:file,
-            fileDetail:fileDetail,
-            Pnumber:Pnumber
-        },
         dataType: 'json',
+        data: form,
+        async: false,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success:function () {
+            alert("done");
+        },
+        error:function () {
+            alert("false");
+        }
+
     })
-    window.location.reload();
+     window.location.reload();
 }
