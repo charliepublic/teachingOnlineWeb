@@ -22,20 +22,20 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public int moreStudent(Student student) {
-        /*Map<String,Object> add = new HashMap<>();
-        add.put("Snumber",student.getSnumber());
-        add.put("Sname",student.getSname());*/
-        return studentMapper.addStudent(student);
+        Map<String,Object> add = new HashMap<>();
+        add.put("Snumber",student.getUsername());
+        add.put("Sname",student.getName());
+        add.put("Spass", student.getSpass());
+        return studentMapper.addStudent(add);
     }
 
     @Override
     public int changeStudent(Student student) {
-        /*Map<String,Object> changeStu=new HashMap<>();
-        changeStu.put("Snumber",student.getSnumber());
-        changeStu.put("Sname",student.getSname());
-        changeStu.put("Cnumber",student.getClassNumber());
-        changeStu.put("Gnumber",student.getGroupNumber());*/
-        return studentMapper.updateStudent(student);
+        Map<String,Object> changeStu=new HashMap<>();
+        changeStu.put("Snumber",student.getUsername());
+        changeStu.put("Sname",student.getName());
+        changeStu.put("Spass", student.getSpass());
+        return studentMapper.updateStudent(changeStu);
     }
 
     @Override

@@ -2,16 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aneon.mapper.StudentMapper">
     <resultMap id="studentMapper" type="com.aneon.po.Student">
-        <id column="Snumber" property="Snumber" jdbcType="VARCHAR"/>
-        <result column="Sname" property="Sname" jdbcType="VARCHAR"/>
-        <result column="Spass" property="Spass" jdbcType="VARCHAR"/>
+        <id column="Snumber" property="username" jdbcType="VARCHAR"/>
+        <result column="Sname" property="name" jdbcType="VARCHAR"/>
         <result column="Gnumber" property="Gnumber" jdbcType="INTEGER"/>
         <result column="Cnumber" property="Cnumber" jdbcType="INTEGER"/>
         <result column="Tnumber" property="Tnumber" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="baseStudent">
-        Snumber, Sname, Spass, Gnumber, Cnumber, Tnumber
+        Snumber, Sname, Gnumber, Cnumber, Tnumber
     </sql>
 
     <select id="selectStudent" resultMap="studentMapper">
@@ -28,7 +27,7 @@
     </select>
 
     <select id="selectStuByIdOrName" resultMap="studentMapper">
-        select *
+        select Snumber, Sname, Gnumber, Cnumber, Tnumber
         from student
         where Snumber like '${snumOrSname}%' or Sname like '%${snumOrSname}%'
     </select>
@@ -64,15 +63,12 @@
         update student
         set
           Sname = #{Sname,jdbcType = VARCHAR},
-          Spass = #{Spass,jdbcType = VARCHAR},
-          Gnumber = #{Gnumber,jdbcType = INTEGER},
-          Cnumber = #{Cnumber,jdbcType = INTEGER},
-          Tnumber = #{Tnumber,jdbcType = INTEGER}
+          Spass = #{Spass,jdbcType = VARCHAR}
          where
           Snumber = #{Snumber,jdbcType = VARCHAR}
     </update>
 
     <select id="getAllStudent" resultMap="studentMapper">
-        select Snumber, Sname, Spass, Gnumber, Cnumber, Tnumber from student
+        select Snumber, Sname, Gnumber, Cnumber, Tnumber from student
     </select>
 </mapper>

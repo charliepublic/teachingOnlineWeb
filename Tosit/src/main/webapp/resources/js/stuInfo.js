@@ -17,8 +17,8 @@ function loadStuInfo() {
                 "                  </tr>\n" +
                 "            </thead>";
             for (var i=0;i<arr.length;i++){
-                content +='<tr><td>'+arr[i].snumber+'</td><td>'+arr[i].sname+/*'</td><td>'+arr[i].classNumber+'</td><td>'+arr[i].groupNumber+'</td>' */'</td><td>'+arr[i].spass+'</td>'+
-                    '<td><button type="button" class="btn btn-primary" data-toggle="modal" id="'+ arr[i].snumber+'" onclick="setSNum(id)" data-target="#myModalChangeStu">修改</button></td></tr>';
+                content +='<tr><td>'+arr[i].username+'</td><td>'+arr[i].name+/*'</td><td>'+arr[i].classNumber+'</td><td>'+arr[i].groupNumber+'</td>' */'</td><td>'+arr[i].spass+'</td>'+
+                    '<td><button type="button" class="btn btn-primary" data-toggle="modal" id="'+ arr[i].username+'" onclick="setSNum(id)" data-target="#myModalChangeStu">修改</button></td></tr>';
             }
             content += "</table>";
             $('#stuInfo').html(content);
@@ -47,8 +47,8 @@ function loadDVD() {
                 "                  </tr>\n" +
                 "            </thead>";
             for (var i=0;i<arr.length;i++){
-                content +='<tr><td>'+arr[i].snumber+'</td><td>'+arr[i].sname+'</td><td>'+arr[i].classNumber+'</td><td>'+
-                    '<button type="button" class="btn btn-primary" data-toggle="modal" id="'+ arr[i].snumber+'" data-target="#myModalDVD" onclick="setSNum1(id)">修改</button></td></tr>';
+                content +='<tr><td>'+arr[i].username+'</td><td>'+arr[i].name+'</td><td>'+arr[i].cnumber+'</td><td>'+
+                    '<button type="button" class="btn btn-primary" data-toggle="modal" id="'+ arr[i].username+'" data-target="#myModalDVD" onclick="setSNum1(id)">修改</button></td></tr>';
             }
             content += "</table>";
             $('#dvdInfo').html(content);
@@ -135,16 +135,17 @@ function changeStuGroup() {
         type:'post',
         url:'/changeStuGroup.do',
         dataType:'json',
+        async: false,
         data:{
             'Snumber':snum,
             'Gnumber':gnum
         },
         success:function (result) {
-            if(result==="修改成功")
+            if(result=="修改成功")
                 window.location.reload();
         },
-        error:function () {
-            alert("false");
+        error:function (err) {
+            alert(err);
         }
     })
 
@@ -211,8 +212,8 @@ function showStuInfo(cnumber) {
                 "                  </tr>\n" +
                 "            </thead>";
             for (var i=0;i<arr.length;i++){
-                content +='<tr><td>'+arr[i].snumber+'</td><td>'+arr[i].sname+'</td><td>'+arr[i].groupNumber+'</td><td>'+
-                    '<button type="button" class="btn btn-primary" data-toggle="modal" id="'+ arr[i].snumber+'" data-target="#myModalchangeG" onclick="setSNum2(id)">修改</button></td></tr>';
+                content +='<tr><td>'+arr[i].username+'</td><td>'+arr[i].name+'</td><td>'+arr[i].gnumber+'</td><td>'+
+                    '<button type="button" class="btn btn-primary" data-toggle="modal" id="'+ arr[i].username+'" data-target="#myModalchangeG" onclick="setSNum2(id)">修改</button></td></tr>';
             }
             content += "</table>";
             $('#showStuByClassId').html(content);
@@ -244,8 +245,8 @@ function findStu() {
                 "                  </tr>\n" +
                 "            </thead>";
             for (var i=0;i<arr.length;i++){
-                content +='<tr><td>'+arr[i].snumber+'</td><td>'+arr[i].sname+'</td><td>'+arr[i].spass+
-                    '</td><td><button type="button" class="btn btn-primary" data-toggle="modal" id="'+ arr[i].snumber+'" data-target="#myModalChangeStu" onclick="setSNum(id)">修改</button></td></tr>';
+                content +='<tr><td>'+arr[i].username+'</td><td>'+arr[i].name+'</td><td>'+arr[i].spass+
+                    '</td><td><button type="button" class="btn btn-primary" data-toggle="modal" id="'+ arr[i].username+'" data-target="#myModalChangeStu" onclick="setSNum(id)">修改</button></td></tr>';
 
             }
             content += "</table>";
