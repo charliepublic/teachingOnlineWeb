@@ -4,7 +4,14 @@ public class Class {
     private int Cnumber;
     private  String Cname;
 
-    public Class(String cname) {
+    public Class(){
+
+    }
+    public Class(String cname){
+        Cname = cname;
+    }
+    public Class(int cnumber,String cname) {
+        Cnumber=cnumber;
         Cname = cname;
     }
 
@@ -18,5 +25,14 @@ public class Class {
 
     public void setCname(String cname) {
         Cname = cname;
+    }
+
+    @Override
+    public String toString() {
+
+        return "classInfo {" +
+                "classnumber='" + Cnumber +
+                "' classname='" + Cname +
+                "'}";
     }
 }

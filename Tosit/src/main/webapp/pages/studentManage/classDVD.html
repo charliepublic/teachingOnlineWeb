@@ -1,50 +1,22 @@
+
 <html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-<body>
+<body onload="loadDVD();return false">
 <div class="container"style="padding: 100px 100px 10px">
     <h1>
         <div style="width:100%;height:auto;float:left;display:block">学员分班信息</div>
     </h1>
-    <div class="container">
-        <table class="table table-hover"style="border:1px;width: 100%">
-            <thead>
-            <tr>
-                <th>学号</th>
-                <th>姓名</th>
-                <th>班级</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal4"style="float: right">
-                        修改
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
+    <div class="container" id="dvdInfo">
+
     </div>
 </div>
-<div class="modal fade" id="myModal4">
+
+<div class="modal fade" id="myModalDVD">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -61,18 +33,24 @@
                 <form>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
+                            <span class="input-group-text">学生学号</span>
+                        </div>
+                        <input type="text" class="form-control" id="StuD_num" name="snum1" readonly="readonly">
+                    </div>
+                    <!--<div class="input-group mb-3">
+                        <div class="input-group-prepend">
                             <span class="input-group-text">学生当前班级</span>
                         </div>
-                        <input type="text" class="form-control" placeholder="班号" id="num1" name="gnum1" readonly="readonly"><!--应该能获取当前组号,如果没有组可以设为0-->
-                    </div>
+                        <input type="text" class="form-control" id="StuCurrent_Cnum" name="cnum1" readonly="readonly">&lt;!&ndash;应该能获取当前组号,如果没有组可以设为0&ndash;&gt;
+                    </div>-->
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">将该生移动至</span>
                         </div>
-                        <input type="text" class="form-control" placeholder="班号" id="num2" name="gnum2">
+                        <input type="text" class="form-control" placeholder="新的班号" id="StuNew_Cnum" name="cnum2"/>
                     </div>
 
-                    <button type="submit" class="btn btn-primary "style="float: right">提交</button>
+                    <button type="submit" class="btn btn-primary "style="float: right" onclick="changeStuClass()">提交</button>
                 </form>
             </div>
 
@@ -85,4 +63,6 @@
     </div>
 </div>
 </body>
+
+<script src="/resources/js/stuInfo.js"></script>
 </html>

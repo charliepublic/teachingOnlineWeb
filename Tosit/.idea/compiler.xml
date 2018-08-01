@@ -9,5 +9,8 @@
         <module name="Tosit" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Tosit" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

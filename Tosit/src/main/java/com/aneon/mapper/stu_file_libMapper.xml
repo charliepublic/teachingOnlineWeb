@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 该文件待修改，需要明确实体类后确定查询所需要的语句和得到的实体 -->
+
+<mapper namespace="com.aneon.mapper.Stu_file_libMapper">
+    <resultMap id="stu_file_libMapper" type="com.aneon.po.Stu_file_lib">
+        <id column="furl" property="furl" jdbcType="VARCHAR"/>
+        <result column="filename" property="filename" jdbcType="VARCHAR"/>
+        <result column="Snumber" property="Snumber" jdbcType="VARCHAR"/>
+        <result column="Pnumber" property="Pnumber" jdbcType="VARCHAR"/>
+        <result column="grand" property="grand" jdbcType="DOUBLE"/>
+        <result column="detail" property="detail" jdbcType="VARCHAR"/>
+    </resultMap>
+    <insert id="saveFile" parameterType="com.aneon.po.Stu_file_lib">
+        insert into stu_file-lib(filename,furl,Snumber,Pnumber,grand,detail)
+         values (#{filename},#{furl},#{Snumber},#{Pnumber},#{grand},#{detail})
+    </insert>
+
+    <update id="updateFile" parameterType="com.aneon.po.Stu_file_lib">
+        update stu_file_lib set detail=#{detail} where furl=#{furl}
+    </update>
+
+    <delete id="deleteFile">
+        delete from stu_file_lib where furl=#{furl}
+    </delete>
+
+    <select id="findFile" resultMap="stu_file_libMapper">
+        select * from stu_file_lib where filename like '%${filename}%'
+    </select>
+
+    <select id="getStudentFile" resultMap="stu_file_libMapper">
+        select * from stu_file_lib where Snumber = #{Snumber}
+    </select>
+
+    <select id="getStudentFileByFurl" resultMap="stu_file_libMapper">
+        select * from stu_file_lib where furl = #{furl}
+    </select>
+</mapper>

@@ -53,7 +53,7 @@
                         <dd><a href="javascript:;" data-url="studentManage/student.html">学员管理</a></dd>
                         <dd><a href="javascript:;" data-url="studentManage/Tclass.html">班级管理</a></dd>
                         <dd><a href="javascript:;" data-url="studentManage/classDVD.html">分班信息</a></dd>
-                        <dd><a href="javascript:;" name="jdfod" data-url="studentManage/classInfo.html">分组信息</a></dd>
+                        <dd><a href="javascript:;" data-url="studentManage/classInfo.html">分组信息</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">

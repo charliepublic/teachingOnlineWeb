@@ -1,38 +1,29 @@
 package com.aneon.po;
 
 public class Student extends User {
-    private Integer groupNumber;
-    private Integer classNumber;
-    private String teacher;
     private String Spass;
+    private Integer Gnumber;
+    private Integer Cnumber;
+    private String Tnumber;
 
-    public Student(String username, String name, String spass) {
-        super(username, name, Identify.STUDENT);
+    public Student(String username, String name) {
+        super(username, name);
+    }
+
+    public Student(String snumber, String sname, Integer classnumber){
+        super(snumber, sname);
+        Gnumber=classnumber;
+    }
+    public Student(String snumber,String sname,String spass) {
+        super(snumber, sname, Identify.STUDENT);
         Spass = spass;
     }
 
-    public Integer getGroupNumber() {
-        return groupNumber;
-    }
-
-    public void setGroupNumber(Integer groupNumber) {
-        this.groupNumber = groupNumber;
-    }
-
-    public Integer getClassNumber() {
-        return classNumber;
-    }
-
-    public void setClassNumber(Integer classNumber) {
-        this.classNumber = classNumber;
-    }
-
-    public String getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(String teacher) {
-        this.teacher = teacher;
+    public Student(String username, String name, Integer gnumber, Integer cnumber, String tnumber) {
+        super(username, name);
+        Gnumber = gnumber;
+        Cnumber = cnumber;
+        Tnumber = tnumber;
     }
 
     public String getSpass() {
@@ -41,5 +32,29 @@ public class Student extends User {
 
     public void setSpass(String spass) {
         Spass = spass;
+    }
+
+    public Integer getGnumber() {
+        return Gnumber;
+    }
+
+    public void setGnumber(Integer gnumber) {
+        Gnumber = gnumber;
+    }
+
+    public Integer getCnumber() {
+        return Cnumber;
+    }
+
+    public void setCnumber(Integer cnumber) {
+        Cnumber = cnumber;
+    }
+
+    public String getTnumber() {
+        return Tnumber;
+    }
+
+    public void setTnumber(String tnumber) {
+        Tnumber = tnumber;
     }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aneon.mapper.TeamMapper">
+    <resultMap id="teamMapper" type="com.aneon.po.Team">
+        <id column="Gnumber" property="Gnumber" jdbcType="VARCHAR"/>
+        <result column="Gname" property="Gname" jdbcType="VARCHAR"/>
+        <result column="Cnumber" property="Cnumber" jdbcType="INTEGER"/>
+        <result column="Pnumber" property="Pnumber" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="getAllTeam" resultMap="teamMapper">
+        select * from team
+    </select>
+
+    <insert id="addTeam" parameterType="com.aneon.po.Team">
+        insert  into team
+        (Gname,Cnumber,Pnumber)
+        values (#{Gname},#{Cnumber},#{Pnumber})
+    </insert>
+
+    <select id="getTeamByNumber" resultMap="teamMapper">
+        select * from team
+        where Gnumber = #{Gnumber}
+    </select>
+</mapper>

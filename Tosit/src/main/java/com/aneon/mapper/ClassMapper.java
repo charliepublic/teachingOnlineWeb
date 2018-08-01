@@ -1,15 +1,17 @@
 package com.aneon.mapper;
-
+import com.aneon.po.Class;
 import java.util.List;
+import java.util.Map;
 
 public interface ClassMapper {
-    int saveClass(Class cls);
+    int addClass(Class cls);
 
-    int updateClass(Class cls);
+    int updateClass(Map a);
 
-    int deleteClass(int cnumber);
+    int deleteClass(int Cnumber);
 
-    Class findCalss(int cnumber);
+    List<Class> findClass(int Cnumber);
 
     List<Class> getAllClass();
+    List<Class> getClassNum();
 }
