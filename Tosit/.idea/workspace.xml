@@ -25,7 +25,7 @@
       <file leaf-file-name="fileChange.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/fileChange.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3608">
+            <state relative-caret-position="407">
               <caret line="164" column="27" selection-start-line="164" selection-start-column="27" selection-end-line="164" selection-end-column="27" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
@@ -238,7 +238,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -500,8 +502,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -686,6 +686,7 @@
       <workItem from="1533095866723" duration="6534000" />
       <workItem from="1533104381629" duration="1125000" />
       <workItem from="1533106412464" duration="59000" />
+      <workItem from="1533106861123" duration="73000" />
     </task>
     <task id="LOCAL-00001" summary="8.1">
       <created>1533090937811</created>
@@ -708,11 +709,18 @@
       <option name="project" value="LOCAL" />
       <updated>1533106460267</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="finish0">
+      <created>1533106921385</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1533106921386</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121983000" />
+    <option name="totallyTimeSpent" value="122056000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1131,7 +1139,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/fileChange.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3608">
+        <state relative-caret-position="407">
           <caret line="164" column="27" selection-start-line="164" selection-start-column="27" selection-end-line="164" selection-end-column="27" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
