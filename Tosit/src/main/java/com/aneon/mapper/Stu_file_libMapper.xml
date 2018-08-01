@@ -13,12 +13,12 @@
         <result column="grand" property="grand" jdbcType="DOUBLE"/>
         <result column="detail" property="detail" jdbcType="VARCHAR"/>
     </resultMap>
-    <insert id="saveFile">
+    <insert id="saveFile" parameterType="com.aneon.po.Stu_file_lib">
         insert into stu_file-lib(filename,furl,Snumber,Pnumber,grand,detail)
          values (#{filename},#{furl},#{Snumber},#{Pnumber},#{grand},#{detail})
     </insert>
 
-    <update id="updateFile">
+    <update id="updateFile" parameterType="com.aneon.po.Stu_file_lib">
         update stu_file_lib set detail=#{detail} where furl=#{furl}
     </update>
 
@@ -27,10 +27,14 @@
     </delete>
 
     <select id="findFile" resultMap="stu_file_libMapper">
-        select * from stu_file_lib where furl=#{furl}
+        select * from stu_file_lib where filename like '%${filename}%'
     </select>
 
     <select id="getStudentFile" resultMap="stu_file_libMapper">
         select * from stu_file_lib where Snumber = #{Snumber}
+    </select>
+
+    <select id="getStudentFileByFurl" resultMap="stu_file_libMapper">
+        select * from stu_file_lib where furl = #{furl}
     </select>
 </mapper>

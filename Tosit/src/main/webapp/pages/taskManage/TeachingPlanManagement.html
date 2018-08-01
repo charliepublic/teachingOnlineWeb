@@ -30,7 +30,7 @@
 
                     <!-- 模态框主体 -->
                     <div class="modal-body">
-                        <form action="/action_page.php">
+                        <form enctype="multipart/form-data" id="uploadForm">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">计划名称</span>
@@ -43,11 +43,11 @@
                                     <span class="input-group-text">上传教学计划</span>
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="uploadTeachPlan" onchange="inputPlanName(); return false;">
+                                    <input type="file" class="custom-file-input" name="planFile" id="uploadTeachPlan" multiple="multiple" accept=".pdf" onchange="inputPlanName(); return false;">
                                     <label class="custom-file-label" for="uploadTeachPlan">选择文件</label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary float-right">提交</button>
+                            <button type="submit" id="create-plan" class="btn btn-primary float-right" onclick="createPlan(); return false;">提交</button>
                         </form>
 
                         <!--<input  class="form-control" id="description" placeholder="添加文件描述">-->
@@ -84,7 +84,7 @@
     </div>
 
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <!--<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>-->
     <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
     <!--<自己的js>-->

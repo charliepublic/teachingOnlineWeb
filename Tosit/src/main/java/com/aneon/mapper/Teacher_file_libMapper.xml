@@ -12,11 +12,11 @@
         <result column="Pnumber" property="Pnumber" jdbcType="VARCHAR"/>
         <result column="detail" property="detail" jdbcType="VARCHAR"/>
     </resultMap>
-    <insert id="saveFile">
-        insert into teacher_file-lib(filename,furl,Snumber,Pnumber,detail) values (#{filename},#{furl},#{Snumber},#{Pnumber},#{detail})
+    <insert id="saveFile" parameterType="com.aneon.po.Teacher_file_lib">
+        insert into teacher_file_lib(filename,furl,Tnumber,Pnumber,detail) values (#{filename},#{furl},#{Tnumber},#{Pnumber},#{detail})
     </insert>
 
-    <update id="updateFile">
+    <update id="updateFile" parameterType="com.aneon.po.Teacher_file_lib">
         update teacher_file_lib set detail=#{detail} where furl=#{furl}
     </update>
 
@@ -25,12 +25,18 @@
     </delete>
 
     <select id="findFile" resultMap="teacher_file_libMapper">
-        select * from teacher_file_lib where furl=#{furl}
+        select * from teacher_file_lib where filename like '%${filename}%'
     </select>
 
     <select id="getTeacherFile" resultMap="teacher_file_libMapper">
         select * from teacher_file_lib where Tnumber = #{Tnumber}
     </select>
 
+    <select id="getAllTeacherFile" resultMap="teacher_file_libMapper">
+        select  * from teacher_file_lib
+    </select>
 
+    <select id="getTeacherFileByFurl" resultMap="teacher_file_libMapper">
+        select * from  teacher_file_lib where furl = #{furl}
+    </select>
 </mapper>

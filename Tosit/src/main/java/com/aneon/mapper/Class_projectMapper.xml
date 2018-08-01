@@ -25,7 +25,7 @@
         where Pnumber = #{Pnumber}
     </select>
 
-    <insert id="addClass_project">
+    <insert id="addClass_project" parameterType="com.aneon.po.Class_project">
         insert into class_project
         ( Cnumber,Pnumber)
         values  (#{Cnumber},#{Pnumber})

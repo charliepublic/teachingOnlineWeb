@@ -23,7 +23,6 @@
         <result column="Cnumber" property="classNumber" jdbcType="INTEGER" />
         <result column="Tnumber" property="teacher" jdbcType="VARCHAR" />
     </resultMap>
-
     <select id="selectStudent" resultMap="studentMap">
         SELECT Snumber, Sname, Gnumber, Cnumber, Tnumber
         FROM student
@@ -34,11 +33,6 @@
         <result column="Rnumber" property="username" jdbcType="VARCHAR" />
         <result column="Rname" property="name" jdbcType="VARCHAR" />
     </resultMap>
-
-    <select id="selectAdmin" resultMap="adminMap">
-        SELECT Rnumber, Rname
-        FROM rootManage
-        WHERE Rnumber=#{username} AND Rpass=#{password}
     </select>
 
 

@@ -20,6 +20,8 @@ public class Team {
         return Gname;
     }
 
+
+
     public int getCnumber() {
         return Cnumber;
     }
@@ -27,6 +29,8 @@ public class Team {
     public String getPnumber() {
         return Pnumber;
     }
+
+
 
     public void setPnumber(String pnumber) {
         Pnumber = pnumber;

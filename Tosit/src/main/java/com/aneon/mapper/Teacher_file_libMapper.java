@@ -5,14 +5,17 @@ import java.util.List;
 import java.util.Map;
 
 public interface Teacher_file_libMapper {
-    void saveFile(Teacher_file_lib tfl);
+    int saveFile(Teacher_file_lib tfl);
 
-    boolean updateFile(Teacher_file_lib tfl);
+    int updateFile(Teacher_file_lib tfl);
 
-    boolean deleteFile(String furl);
+    int deleteFile(String furl);
 
-    Teacher_file_lib findFile(String furl);
+    List<Teacher_file_lib> findFile(Map<String, Object> a);
 
     List<Teacher_file_lib> getTeacherFile(String Tnumber);
 
+    List<Teacher_file_lib> getAllTeacherFile();
+
+    List<Teacher_file_lib> getTeacherFileByFurl(String furl);
 }
