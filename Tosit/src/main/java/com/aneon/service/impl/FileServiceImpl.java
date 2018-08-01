@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class fileServiceImpl implements fileService {
+public class FileServiceImpl implements FileService {
 
     @Autowired
     Stu_file_libMapper stu_file_libMapper;
