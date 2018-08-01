@@ -4,17 +4,19 @@ public class Teacher_file_lib {
     private String filename;
     private String furl;
     private String Tnumber;
-    private String Pnumber;
+    private int Pnumber;
     private String detail;
 
-    /*
-    public Teacher_file_lib(String filename, String furl, String tnumber, String pnumber, String detail) {
+    public Teacher_file_lib(String filename, String furl, String tnumber, int pnumber, String detail) {
         this.filename = filename;
         this.furl = furl;
         Tnumber = tnumber;
         Pnumber = pnumber;
         this.detail = detail;
-    }*/
+    }
+
+    public Teacher_file_lib() {
+    }
 
     public String getFilename() {
         return filename;
@@ -28,7 +30,7 @@ public class Teacher_file_lib {
         return Tnumber;
     }
 
-    public String getPnumber() {
+    public int getPnumber() {
         return Pnumber;
     }
 
@@ -48,7 +50,7 @@ public class Teacher_file_lib {
         Tnumber = tnumber;
     }
 
-    public void setPnumber(String pnumber) {
+    public void setPnumber(int pnumber) {
         Pnumber = pnumber;
     }
 

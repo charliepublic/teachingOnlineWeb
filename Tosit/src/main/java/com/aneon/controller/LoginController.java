@@ -2,45 +2,31 @@ package com.aneon.controller;
 
 import com.aneon.po.User;
 
-import com.aneon.service.UserService;
+import com.aneon.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.ServletException;
+import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 
 @Controller
 public class LoginController {
 
     @Autowired
-    UserService userService;
+    LoginService loginService;
 
     @RequestMapping("/loginAction.do")
-    public ModelAndView login(String zh, String mm, HttpServletRequest request, HttpServletResponse response) {
-        ModelAndView modelAndView = new ModelAndView();
-        User user = userService.login(zh, mm);
+    public @ResponseBody String login1(String zh, String mm, HttpServletRequest request) {
+        String res = "登录失败";
+        User user = loginService.login(zh, mm);
         HttpSession session = request.getSession();
         if(user != null) {
+            res = user.getName();
             session.setAttribute("User", user);
-            session.removeAttribute("CorrectUser");
-            try {
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
-            } catch (ServletException | IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            session.setAttribute("CorrectUser", "false");
-            try {
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
-            } catch (IOException | ServletException e) {
-                e.printStackTrace();
-            }
         }
-        return modelAndView;
+        return res;
     }
+
+
 }

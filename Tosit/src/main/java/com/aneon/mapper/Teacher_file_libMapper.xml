@@ -9,11 +9,11 @@
         <id column="furl" property="furl" jdbcType="VARCHAR"/>
         <result column="filename" property="filename" jdbcType="VARCHAR"/>
         <result column="Tnumber" property="Tnumber" jdbcType="VARCHAR"/>
-        <result column="Pnumber" property="Pnumber" jdbcType="VARCHAR"/>
+        <result column="Pnumber" property="Pnumber" jdbcType="INTEGER"/>
         <result column="detail" property="detail" jdbcType="VARCHAR"/>
     </resultMap>
     <insert id="saveFile" parameterType="com.aneon.po.Teacher_file_lib">
-        insert into teacher_file-lib(filename,furl,Snumber,Pnumber,detail) values (#{filename},#{furl},#{Snumber},#{Pnumber},#{detail})
+        insert into teacher_file_lib(filename,furl,Tnumber,Pnumber,detail) values (#{filename},#{furl},#{Tnumber},#{Pnumber},#{detail})
     </insert>
 
     <update id="updateFile" parameterType="com.aneon.po.Teacher_file_lib">
@@ -30,5 +30,13 @@
 
     <select id="getTeacherFile" resultMap="teacher_file_libMapper">
         select * from teacher_file_lib where Tnumber = #{Tnumber}
+    </select>
+
+    <select id="getAllTeacherFile" resultMap="teacher_file_libMapper">
+        select  * from teacher_file_lib
+    </select>
+
+    <select id="getTeacherFileByFurl" resultMap="teacher_file_libMapper">
+        select * from  teacher_file_lib where furl = #{furl}
     </select>
 </mapper>

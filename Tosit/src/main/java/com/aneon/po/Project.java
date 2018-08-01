@@ -1,19 +1,28 @@
 package com.aneon.po;
 
 public class Project {
-    private String Pnumber;
+    private int Pnumber;
     private String Pname;
     private int UpTime;
     private String Info;
-    private int isPass = 0;
 
-    public Project(String pname, int upTime, String info) {
+    private int isPass;
+
+    public  Project(){
+
+    }
+
+    public Project(int pnumber,String pname, int upTime, String info) {
+        this.Pnumber = pnumber;
         Pname = pname;
         UpTime = upTime;
         Info = info;
+        this.isPass=0;
     }
 
-    public String getPnumber() {
+
+
+    public int getPnumber() {
         return Pnumber;
     }
 
@@ -48,4 +57,16 @@ public class Project {
     public void setIsPass(int isPass) {
         this.isPass = isPass;
     }
+
+
+ /*   @Override
+
+    public String toString() {
+
+        return "Project {" +
+                "ProjectNumber='" + Pnumber +
+                "' ProjectName='" + Pname +
+                "' ProjectUptime='" + UpTime +
+                "' ProjectInfo='" + Info + "'}";
+    }*/
 }

@@ -4,17 +4,10 @@ public class Stu_file_lib {
     private String filename;
     private String furl;
     private String Snumber;
-    private String Pnumber;
+    private int Pnumber;
     private double grand;
     private String detail;
 
-    public Stu_file_lib(String filename, String furl, String Snumber, String pnumber, String detail) {
-        this.filename = filename;
-        this.furl = furl;
-        this.Snumber = Snumber;
-        Pnumber = pnumber;
-        this.detail = detail;
-    }
 
     public String getFilename() {
         return filename;
@@ -28,7 +21,7 @@ public class Stu_file_lib {
         return Snumber;
     }
 
-    public String getPnumber() {
+    public int getPnumber() {
         return Pnumber;
     }
 
@@ -52,7 +45,7 @@ public class Stu_file_lib {
         Snumber = snumber;
     }
 
-    public void setPnumber(String pnumber) {
+    public void setPnumber(int pnumber) {
         Pnumber = pnumber;
     }
 

@@ -35,7 +35,7 @@
     </resultMap>
     <select id="selectAdmin" resultMap="adminMap">
         SELECT Rnumber, Rname
-        FROM rootManage
+        FROM Rootmanage
         WHERE Rnumber=#{username} AND Rpass=#{password}
     </select>
 

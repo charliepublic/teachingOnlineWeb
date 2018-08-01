@@ -15,7 +15,7 @@ public class Student extends User {
         Gnumber=classnumber;
     }
     public Student(String snumber,String sname,String spass) {
-        super(snumber, sname);
+        super(snumber, sname, Identify.STUDENT);
         Spass = spass;
     }
 
