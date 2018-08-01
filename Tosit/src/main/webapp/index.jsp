@@ -17,7 +17,7 @@
       <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="resources/css/tooplate-style.css">
     </head>
-    <body onload="check(); return false;">
+    <body class="abc" onload="check(); return false;">
     <script>
       function check() {
           <%  User user = (User)session.getAttribute("User");
