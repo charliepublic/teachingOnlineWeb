@@ -49,8 +49,8 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public int addTeacherFile(Teacher_file_lib teacher_file_lib) {
-        return teacher_file_libMapper.saveFile(teacher_file_lib);
+    public int addTeacherFile(Map<String, Object> a) {
+        return teacher_file_libMapper.saveFile(a);
     }
 
     @Override

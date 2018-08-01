@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -152,7 +153,13 @@ public class FileController {
             teacher_file_lib.setDetail(fileDetail);
             teacher_file_lib.setPnumber(Pnumber);
             teacher_file_lib.setTnumber(userName);
-            fileService.addTeacherFile(teacher_file_lib);
+            Map<String, Object> b = new HashMap<>();
+            b.put("filename", teacher_file_lib.getFilename());
+            b.put("furl", teacher_file_lib.getFurl());
+            b.put("Tnumber", teacher_file_lib.getTnumber());
+            b.put("Pnumber", teacher_file_lib.getPnumber());
+            b.put("detail", teacher_file_lib.getDetail());
+            fileService.addTeacherFile(b);
             }
         // 添加学生文件
         else if (userName.length() == 14) {

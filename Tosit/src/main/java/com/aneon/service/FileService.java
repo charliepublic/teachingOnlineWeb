@@ -3,6 +3,7 @@ package com.aneon.service;
 import com.aneon.po.*;
 
 import java.util.List;
+import java.util.Map;
 
 public interface FileService {
 
@@ -12,7 +13,7 @@ public interface FileService {
     List<Stu_file_lib> findStudentFileByName(String filename);
     int deleteStudentFileByFurl(String furl);
 
-    int addTeacherFile (Teacher_file_lib teacher_file_lib);
+    int addTeacherFile (Map<String, Object> a);
     int updataTeacherFile (String furl,String newDetail);
     List<Teacher_file_lib> getTeacherFileByTnumber(String Tnumber);
     List<Teacher_file_lib> findTeacherFileByName (String filename);

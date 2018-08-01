@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 public interface Teacher_file_libMapper {
-    int saveFile(Teacher_file_lib tfl);
+//    int saveFile(Teacher_file_lib tfl);
+    int saveFile(Map<String, Object> a);
 
     int updateFile(Teacher_file_lib tfl);
 

@@ -5,15 +5,22 @@ public class Project {
     private String Pname;
     private int UpTime;
     private String Info;
+
     private int isPass;
 
-    public Project(String pname, int upTime, String info) {
+    public  Project(){
 
-        this.isPass=0;
+    }
+
+    public Project(int pnumber,String pname, int upTime, String info) {
+        this.Pnumber = pnumber;
         Pname = pname;
         UpTime = upTime;
         Info = info;
+        this.isPass=0;
     }
+
+
 
     public int getPnumber() {
         return Pnumber;
@@ -50,4 +57,16 @@ public class Project {
     public void setIsPass(int isPass) {
         this.isPass = isPass;
     }
+
+
+ /*   @Override
+
+    public String toString() {
+
+        return "Project {" +
+                "ProjectNumber='" + Pnumber +
+                "' ProjectName='" + Pname +
+                "' ProjectUptime='" + UpTime +
+                "' ProjectInfo='" + Info + "'}";
+    }*/
 }
