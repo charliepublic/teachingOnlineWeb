@@ -8,32 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="39f6844b-be3d-4c74-bb12-6dd375e1943c" name="Default" comment="finish1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/tooplate-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/tooplate-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/01-big-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/01-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/02-big-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/02-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/03-big-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/03-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/04-big-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/04-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/05-big-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/05-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/06-big-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/06-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/07-big-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/07-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/08-big-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/08-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/first-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/fivth-section-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/fourth-section-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/left-image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/right-image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/second-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/sixth-section-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/third-item.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/third-section-bg.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,7 +21,23 @@
     <SUITE FILE_PATH="coverage/Tosit$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1532768393895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="ClassMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aneon/mapper/ClassMapper.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="TaskMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aneon/mapper/TaskMapper.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="first-section-bg.png" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/first-section-bg.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -173,9 +163,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -223,6 +210,16 @@
               <item name="Tosit" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="aneon" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Tosit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Tosit" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -255,6 +252,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -445,6 +445,8 @@
       <workItem from="1533108523206" duration="3895000" />
       <workItem from="1533119468527" duration="451000" />
       <workItem from="1533120026428" duration="885000" />
+      <workItem from="1533120944294" duration="89000" />
+      <workItem from="1533121356634" duration="121000" />
     </task>
     <task id="LOCAL-00001" summary="8.1">
       <created>1533090937811</created>
@@ -474,14 +476,22 @@
       <option name="project" value="LOCAL" />
       <updated>1533106921386</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="finish1">
+      <created>1533120979524</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1533120979524</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127287000" />
+    <option name="totallyTimeSpent" value="127497000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -507,10 +517,9 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.45652175" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2265625" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2265625" />
       <window_info anchor="right" id="Bean Validation" order="3" />
       <window_info id="Web" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32905138" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -518,6 +527,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32905138" />
       <window_info anchor="right" id="Coverage" order="4" side_tool="true" />
     </layout>
   </component>
@@ -535,7 +545,8 @@
     <MESSAGE value="8.1" />
     <MESSAGE value="Merge branch 'development' into dev-charlie&#10;&#10;# Conflicts:&#10;#&#9;Tosit/.idea/misc.xml&#10;#&#9;Tosit/pom.xml&#10;#&#9;Tosit/src/main/java/com/aneon/controller/LoginController.java&#10;#&#9;Tosit/src/main/java/com/aneon/filter/LoginFilter.java&#10;#&#9;Tosit/src/main/java/com/aneon/mapper/ClassMapper.java&#10;#&#9;Tosit/src/main/java/com/aneon/mapper/ProjectMapper.java&#10;#&#9;Tosit/src/main/java/com/aneon/mapper/Stu_file_libMapper.java&#10;#&#9;Tosit/src/main/java/com/aneon/mapper/StudentMapper.java&#10;#&#9;Tosit/src/main/java/com/aneon/mapper/TaskMapper.java&#10;#&#9;Tosit/src/main/java/com/aneon/mapper/Teacher_file_libMapper.java&#10;#&#9;Tosit/src/main/java/com/aneon/mapper/Teacher_file_libMapper.xml&#10;#&#9;Tosit/src/main/java/com/aneon/mapper/TeamMapper.java&#10;#&#9;Tosit/src/main/java/com/aneon/mapper/UserMapper.java&#10;#&#9;Tosit/src/main/java/com/aneon/po/Project.java&#10;#&#9;Tosit/src/main/java/com/aneon/po/Stu_file_lib.java&#10;#&#9;Tosit/src/main/java/com/aneon/po/Student.java&#10;#&#9;Tosit/src/main/java/com/aneon/po/Teacher_file_lib.java&#10;#&#9;Tosit/src/main/java/com/aneon/po/User.java&#10;#&#9;Tosit/src/main/java/com/aneon/service/impl/UserServiceImpl.java&#10;#&#9;Tosit/src/main/java/com/aneon/utils/FileUtils.java&#10;#&#9;Tosit/src/main/resources/jdbc.properties&#10;#&#9;Tosit/src/main/webapp/index.jsp&#10;#&#9;Tosit/src/main/webapp/index1.jsp&#10;#&#9;Tosit/src/main/webapp/resources/js/index.js&#10;#&#9;Tosit/target/Tosit/pages/index.jsp" />
     <MESSAGE value="finish0" />
-    <option name="LAST_COMMIT_MESSAGE" value="finish0" />
+    <MESSAGE value="finish1" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -584,9 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aneon/mapper/TaskMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/aneon/mapper/StudentMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
@@ -600,9 +608,6 @@
           <caret line="36" column="36" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="36" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aneon/mapper/ClassMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/aneon/mapper/Class_projectMapper.xml">
       <provider selected="true" editor-type-id="text-editor" />
@@ -728,9 +733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-          <folding>
-            <element signature="e#605#606#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -790,18 +792,11 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/first-icon.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/fivth-section-bg.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/fivth-section-bg.png" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/footer-bg.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/fourth-section-bg.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/first-section-bg.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/fourth-section-bg.png" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/fourth-icon.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -820,9 +815,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/second-icon.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/third-section-bg.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/third-section-bg.png" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/third-icon.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -832,6 +825,15 @@
           <caret line="333" column="15" selection-start-line="333" selection-start-column="15" selection-end-line="333" selection-end-column="15" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aneon/mapper/ClassMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aneon/mapper/TaskMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/first-section-bg.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
   </component>
 </project>
