@@ -12,10 +12,10 @@
         select * from team
     </select>
 
-    <insert id="addTeam">
+    <insert id="addTeam" parameterType="com.aneon.po.Team">
         insert  into team
         (Gname,Cnumber,Pnumber)
-        values (#{Gname,#{Cnumber},#Pnumber)
+        values (#{Gname},#{Cnumber},#{Pnumber})
     </insert>
 
     <select id="getTeamByNumber" resultMap="teamMapper">

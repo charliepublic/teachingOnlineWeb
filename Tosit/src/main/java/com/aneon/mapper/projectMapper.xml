@@ -9,12 +9,12 @@
         <result column="isPass" property="isPass" jdbcType="INTEGER"/>
     </resultMap>
 
-    <insert id="addProject">
+    <insert id="addProject" parameterType="com.aneon.po.Project">
         insert INTO project (Pname,Uptime,Info,isPass)
         values (#{Pname},#{UpTime},#{Info},#{isPass})
     </insert>
 
-    <update id="updateProject">
+    <update id="updateProject" parameterType="com.aneon.po.Project">
         update project
         set
           Pname = #{Pname},
