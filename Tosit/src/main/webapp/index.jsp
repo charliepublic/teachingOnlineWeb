@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.aneon.po.User" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -29,10 +31,11 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <form class="form-inline my-2 my-lg-0" id="navbarNavDropdown">
-            <input type="text" placeholder="用户名" id="username" class="form-control mr-sm-2 ">
-            <input type="password" placeholder="密码" id="password" class="form-control mr-sm-2">
-            <button type="submit" class="btn btn-success" onclick="login();">登录</button>
-            <a class="text-light ml-sm-2" href="backend.jsp">进入后台</a>
+              <input type="text" placeholder="用户名" name="zh" id="zh" class="form-control mr-sm-2 ">
+              <input type="password" placeholder="密码" name="mm" id="mm" class="form-control mr-sm-2">
+              <button class="btn btn-success" onclick="login(); return false;" id="loginBtn">登录</button>
+              <a class="text-light " id="hello" style="display: none"><span id="name"></span>，您好</a>
+              <a class="text-light ml-sm-2" id="backend" href="pages/backend.jsp" style="display: none">进入后台</a>
         </form>
     </div>
 </nav>
@@ -63,7 +66,16 @@
 <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
 <!-- 自己的js代码 -->
+<script src="resources/js/index.js"></script>
 
 </body>
 </html>
 
+<%--<html>--%>
+<%--<head>--%>
+<%--<script src="resources/lib/layui/layui.js"></script>--%>
+<%--</head>--%>
+<%--<body>--%>
+
+<%--</body>--%>
+<%--</html>--%>
