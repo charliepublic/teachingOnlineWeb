@@ -28,7 +28,7 @@ layui.use(['element', 'layer'], function() {
 					};
                 });
                 if(count === 0) {
-                    tabTitle += '<i class="layui-icon layui-unselect layui-tab-close">x</i>';
+                    tabTitle += '<i class="layui-icon layui-unselect layui-tab-close">&#x1006;</i>';
                     element.tabAdd('page-tab', {
                         title: tabTitle,
                         content: '<iframe src="' + url + '" style="height:100%; width: 100%"></iframe>',

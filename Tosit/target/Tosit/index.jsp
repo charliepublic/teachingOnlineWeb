@@ -1,3 +1,4 @@
+<%@ page import="com.aneon.po.User" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
@@ -15,7 +16,7 @@
     <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="cust/css/jumbotron.css" rel="stylesheet">
+
 
 </head>
 
@@ -28,11 +29,23 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <form class="form-inline my-2 my-lg-0" id="navbarNavDropdown">
-            <input type="text" placeholder="用户名" id="username" class="form-control mr-sm-2 ">
-            <input type="password" placeholder="密码" id="password" class="form-control mr-sm-2">
-            <button type="submit" class="btn btn-success" onclick="login();">登录</button>
-            <a class="text-light ml-sm-2" href="backend.jsp">进入后台</a>
+        <form class="form-inline my-2 my-lg-0" action="/loginAction.do" method="post" id="navbarNavDropdown" onsubmit="return login();">
+
+            <% User user = (User)session.getAttribute("User");
+               String correctUser = (String)session.getAttribute("CorrectUser");
+               if(correctUser != null) { %>
+                    <script>
+                        window.alert("用户名或密码错误！");
+                    </script>
+               <% } %>
+                <% if(user == null) { %>
+                    <input type="text" placeholder="用户名" name="zh" class="form-control mr-sm-2 ">
+                    <input type="password" placeholder="密码" name="mm" class="form-control mr-sm-2">
+                    <button class="btn btn-success" onclick="login(); return false;">登录</button>
+            <% } else { %>
+                    <a class="text-light "><%= user.getName() %>，您好</a>
+                    <a class="text-light ml-sm-2" href="pages/backend.jsp">进入后台</a>
+            <% } %>
         </form>
     </div>
 </nav>
@@ -63,6 +76,7 @@
 <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
 <!-- 自己的js代码 -->
+<script src="resources/js/index.js"></script>
 
 </body>
 </html>

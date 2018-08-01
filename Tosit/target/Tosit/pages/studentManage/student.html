@@ -1,11 +1,25 @@
-<html>
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
 
-<body>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<body onload="loadStuInfo(); return false">
 <div class="container"style="padding: 100px 100px 10px">
     <h1>
-        <div style="width:50%;height:auto;float:left;display:inline">已有学员</div>
-        <div style="width:50%;height:auto;float:left;display:inline">
+        <div style="width:25%;height:auto;float:left;display:inline">已有学员</div>
+
+        <div style="width: 50%;height:auto;float:left;display:inline">
+            <input type="text" class="form-control" style="width: 80%;display:inline" placeholder="输入学号或姓名" id="selectStu"/>
+            <div class="input-group mb-3">
+                <button type="button" class="btn btn-success" type="submit" style="width: 20%;display: inline" onclick="findStu()">查询</button>
+            </div>
+        </div>
+
+        <div style="width:25%;height:auto;float:right;display:inline">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="" style="float: right">
                 批量导入 <!--实现批量导入的功能-->
             </button>
@@ -14,6 +28,12 @@
             </button>
         </div>
     </h1>
+
+    <div class="container" id="stuInfo">
+
+    </div>
+
+
 
     <div class="modal fade" id="myModal2">
         <div class="modal-dialog">
@@ -30,29 +50,29 @@
                 <!-- 模态框主体 -->
                 <div class="modal-body">
                     <div class="container mt-3">
-                        <form action="/action_page.php">
+                        <form id="createStuForm" method="post">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">学生账号</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="学号" id="num" name="snum">
+                                <input type="text" class="form-control" placeholder="学号" id="CreateStu_num" name="num"/>
                             </div>
 
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">学生姓名</span>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">学生姓名</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="班名" id="CreateStu_name" name="name"/>
                                 </div>
-                                <input type="text" class="form-control" placeholder="班名" id="name" name="cname">
-                            </div>
 
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">设置密码</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="密码" id="pwd" name="spwd">
-                            </div>
+                            <!--<div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">设置密码</span>
+                                    </div>
+                                <input type="text" class="form-control" placeholder="密码" id="CreateStu_pwd" name="spwd"/>
+                            </div>-->
 
-                            <button type="submit" class="btn btn-primary"style="float: right">提交</button> <!--实现单个添加学生信息功能-->
+                            <button type="submit" class="btn btn-primary"style="float: right" onclick="createStu()">提交</button> <!--实现单个添加学生信息功能-->
                         </form>
                     </div>
                 </div>
@@ -66,40 +86,74 @@
         </div>
     </div>
 
-    <div class="container">
-        <table class="table table-hover"style="border:1px;width: 100%">
-            <thead>
-            <tr>
-                <th>学号</th>
-                <th>姓名</th>
-                <th>密码</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
+
+
+    <!-- 模态框 -->
+    <div class="modal fade" id="myModalChangeStu">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h1>
+                        <div style="width:100%;height:auto;float:left;display:inline">修改学员信息</div>
+                    </h1>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- 模态框主体 -->
+                <div class="modal-body">
+                    <div class="container mt-3">
+                        <form>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">学号</span>
+                                </div>
+                                <input type="text" class="form-control" id="showStudent_num" name="snum" readonly="readonly">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">姓名</span>
+                                </div>
+                                <input type="text" class="form-control" id="Stu_name" name="sname"/>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">密码</span>
+                                </div>
+                                <input type="text" class="form-control" id="Stu_pass" name="spass"/>
+                            </div>
+
+                           <!-- <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">班号</span>
+                                </div>
+                                <input type="text" class="form-control" id="StuClass_num" name="cnum"/>
+                            </div>-->
+
+                            <!--<div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">组号</span>
+                                </div>
+                                <input type="text" class="form-control" id="Group_num" name="gnum"/>
+                            </div>-->
+                            <button type="submit" class="btn btn-primary"style="float: right" onclick="changeStu()">提交</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- 模态框底部 -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </body>
+
+<script src="/resources/js/stuInfo.js"></script>
 </html>
