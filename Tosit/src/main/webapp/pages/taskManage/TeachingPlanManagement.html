@@ -5,85 +5,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
-
-
-
 </head>
 
-<body>
+<body onload="loadPlan(); return false;">
 
 
     <div class="container" style="padding: 100px 100px 10px;">
 
         <div class="header clearfix">
-            <h3 class="text-muted" style="margin-left: 15px">教学计划管理</h3>
-            <button type="button" class="btn btn-primary" style="float: right;margin-right: 15px">+创建新的教学计划</button>
+            <h3 class="text-muted" style="float: left; margin-left: 15px;">教学计划管理</h3>
+            <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal" style="margin-right: 15px">+创建新的教学计划</button>
         </div>
         <br>
 
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
 
-        <div class="container">
-            <div id="project1" class="container-fluid  border" style="padding-top:70px;padding-bottom:70px">
-                <div class="container">
-                    <form class="form-inline">
-                        <p style="margin-right: 10px;font-weight: bold">教学计划：</p>
-                        <p style="margin-right: 10px">Plan of teaching </p>
-                        <p style="float: right; font-weight: bold;margin-right: 10px">策划人：</p>
-                        <p style="margin-right: 10px">Person-name</p>
-                    </form>
-                    <p style="font-weight: bold">描述:</p>
+                    <!-- 模态框头部 -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">创建教学计划</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
 
-                    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+                    <!-- 模态框主体 -->
+                    <div class="modal-body">
+                        <form enctype="multipart/form-data" id="uploadForm">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">计划名称</span>
+                                </div>
+                                <input type="text" class="form-control" id="plan-name" name="snum" disabled="disabled">
+                            </div>
 
-                    <div class="text-left" style="float:right"><a href="#">查看</a></div>
-                    <br>
-                    <button type="button" class="btn btn-secondary" style="float: left;">删除</button>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">上传教学计划</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="planFile" id="uploadTeachPlan" multiple="multiple" accept=".pdf" onchange="inputPlanName(); return false;">
+                                    <label class="custom-file-label" for="uploadTeachPlan">选择文件</label>
+                                </div>
+                            </div>
+                            <button type="submit" id="create-plan" class="btn btn-primary float-right" onclick="createPlan(); return false;">提交</button>
+                        </form>
 
-                </div>
-            </div>
-            <div id="project2" class="container-fluid  border" style="padding-top:70px;padding-bottom:70px">
-                <div class="container">
-                    <form class="form-inline">
-                        <p style="margin-right: 10px;font-weight: bold">教学计划：</p>
-                        <p style="margin-right: 10px">Plan of teaching </p>
-                        <p style="float: right; font-weight: bold;margin-right: 10px">策划人：</p>
-                        <p style="margin-right: 10px">Person-name</p>
-                    </form>
-                    <p style="font-weight: bold">描述:</p>
+                        <!--<input  class="form-control" id="description" placeholder="添加文件描述">-->
+                        <!--<button type="submit"  class="btn btn-primary float-right" onclick="">add</button>  &lt;!&ndash; 这里添加点击相应事件（上传文件）   &ndash;&gt;-->
 
-                    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+                    </div>
 
-                    <div class="text-left" style="float:right"><a href="#">查看</a></div>
-                    <br>
-                    <button type="button" class="btn btn-secondary" style="float: left;">删除</button>
-
-                </div>
-            </div>
-            <div id="project3" class="container-fluid  border" style="padding-top:70px;padding-bottom:70px">
-                <div class="container">
-                    <form class="form-inline">
-                        <p style="margin-right: 10px;font-weight: bold">教学计划：</p>
-                        <p style="margin-right: 10px">Plan of teaching </p>
-                        <p style="float: right; font-weight: bold;margin-right: 10px">策划人：</p>
-                        <p style="margin-right: 10px">Person-name</p>
-                    </form>
-                    <p style="font-weight: bold">描述:</p>
-
-                    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-
-                    <div class="text-left" style="float:right"><a href="#">查看</a></div>
-                    <br>
-                    <button type="button" class="btn btn-secondary" style="float: left;">删除</button>
+                    <!-- 模态框底部 -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
 
                 </div>
             </div>
-
-
-
         </div>
+
+
+        <div class="container" id="plans">
+            <!--<div class="container-fluid  border" style="padding-top:70px; padding-bottom:70px">-->
+                <!--<div class="container" id="plans">-->
+                    <!--<div>-->
+                        <!--<h4>教学计划：<span id="plan_name">你好</span></h4>-->
+                    <!--</div>-->
+                    <!--<br>-->
+                    <!--<div>-->
+                        <!--<h5>策划人：<span id="plane_people">董昱灿</span></h5>-->
+                    <!--</div>-->
+                    <!--<div class="text-left" style="float:right"><a href="#">查看</a></div>-->
+                    <!--<br>-->
+                    <!--<button type="button" class="btn btn-secondary" style="float: left;">删除</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <!--<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>-->
     <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <!--<自己的js>-->
+    <script src="/resources/js/teachPlan.js"></script>
 </body>
 
 </html>

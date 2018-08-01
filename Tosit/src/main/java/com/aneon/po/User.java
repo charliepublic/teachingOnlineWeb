@@ -5,6 +5,14 @@ public class User {
     private String username;
     private String name;
 
+    public User(String username, String name, Identify identify) {
+        this.username = username;
+        this.name = name;
+        this.identify = identify;
+    }
+
+    public User() {}
+
     public Identify getIdentify() {
         return identify;
     }
