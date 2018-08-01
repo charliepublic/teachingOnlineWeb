@@ -7,8 +7,11 @@ function loadPlan() {
             var arr = $.parseJSON(data);
             var content = "";
             for (var i = 0; i < arr.length; i++) {
-                content += '<div class="container-fluid  border" style="padding-top:70px; padding-bottom:70px"><div><h4>教学计划：<span id="plan_name">' + arr[i].planName.replace(/(.*\/)*([^.]+).*/ig,"$2") + '</span></h4></div><br><div><h5>策划人：<span id="plane_people">' + arr[i].teacherName +
-                    '</span></h5></div><div><button type="button" class="btn btn-secondary float-right" id="\' + arr[i].teacherId + \'" onclick="deletePlan(id); return false;">删除</button><a class="btn btn-primary float-right mr-sm-2" href="' + arr[i].url + '">查看</a></div></div>';
+                content += '<div class="container-fluid  border" style="padding-top:70px; padding-bottom:70px">' +
+                                '<div><h4>教学计划：<span id="plan_name">' + arr[i].planName.replace(/(.*\/)*([^.]+).*/ig,"$2") + '</span></h4></div>' +
+                                '<br>' +
+                                '<div><h5>策划人：<span id="plane_people">' + arr[i].teacherName + '</span></h5></div>' +
+                                '<div><button type="button" class="btn btn-secondary float-right" id=' + arr[i].teacherId + ' onclick="deletePlan(id); return false;">删除</button><a class="btn btn-primary float-right mr-sm-2" href="' + arr[i].url + '">查看</a></div></div>';
             }
             $('#plans').html(content);
         }

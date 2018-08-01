@@ -158,17 +158,16 @@ function changeDetail(furl) {
 }
 
 function addNewFile() {
-    var file = $("#fileName").val();
-    var Pnumber = $("#Pnumber").val();
-    var fileDetail = $("#fileDetail").val();
     var form = new FormData($('#uploadForm')[0]);
 
     $.ajax({
         type: 'post',
         url: '/addFile.do',
         data: form,
+        dataType: 'json',
         async: false,
         cache: false,
+        contentType: false,
         processData: false,
         success:function () {
             alert("done");

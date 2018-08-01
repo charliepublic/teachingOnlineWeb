@@ -22,9 +22,9 @@ import  com.aneon.utils.FileUtils;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Controller
-public class fileController {
+public class FileController {
     @Autowired
-    fileService fileService;
+    FileService fileService;
 
     @RequestMapping(value = "/searchTeacherFile.do", produces = "text/html;charset=UTF-8")
     public @ResponseBody
@@ -110,11 +110,11 @@ public class fileController {
     }
 
 
-    @RequestMapping(value = "/addFile.do", produces = "text/html;charset=UTF-8")
+    @RequestMapping("/addFile.do")
     public  @ResponseBody
-    void addFile(HttpServletResponse response,HttpSession httpSession,HttpServletRequest httpServletRequest) {
+    void addFile(HttpServletResponse response, HttpSession httpSession, HttpServletRequest httpServletRequest) {
 
-
+        boolean dfd = httpServletRequest instanceof MultipartHttpServletRequest;
         response.setHeader("Cache-Control", "no-cache");
         response.setContentType("text/json;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");

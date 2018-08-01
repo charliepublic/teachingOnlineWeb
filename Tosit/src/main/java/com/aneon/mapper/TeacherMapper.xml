@@ -21,7 +21,7 @@
 
     <update id="deletePlan">
         UPDATE teacher
-        SET teachfile=''
+        SET teachfile=null
         WHERE Tnumber=#{username}
     </update>
 </mapper>

@@ -21,12 +21,14 @@ public class TeachPlanServiceImpl implements TeachPlanService {
         if(teachers != null) {
             String planName;
             for (Teacher teacher: teachers) {
-                if(!teacher.getTeachFile().equals("")) {
-                    StringTokenizer tz = new StringTokenizer(teacher.getTeachFile(), "\\");
-                    int i = 0;
-                    while (i < tz.countTokens() - 1)
-                        tz.nextToken();
-                    planName = tz.nextToken();
+                if(teacher.getTeachFile() != null) {
+                    String temp[] = teacher.getTeachFile().split("/");
+//                    StringTokenizer tz = new StringTokenizer(teacher.getTeachFile(), "\\");
+//                    int i = 0;
+//                    while (i < tz.countTokens() - 1)
+//                        tz.nextToken();
+//                    planName = tz.nextToken();
+                    planName = temp[temp.length - 1];
                     teachPlans.add(new TeachPlan(teacher.getUsername(), planName, teacher.getName(), teacher.getTeachFile()));
                 }
             }

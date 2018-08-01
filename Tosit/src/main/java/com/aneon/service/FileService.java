@@ -4,7 +4,7 @@ import com.aneon.po.*;
 
 import java.util.List;
 
-public interface fileService {
+public interface FileService {
 
     int addStudentFile (Stu_file_lib stu_file_lib);
     int updataStudentFile (String furl, String newDetail);
