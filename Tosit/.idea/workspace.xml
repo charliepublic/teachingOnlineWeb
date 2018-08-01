@@ -42,8 +42,8 @@
       <file leaf-file-name="fileController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/aneon/controller/fileController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2050">
-              <caret line="157" column="43" lean-forward="true" selection-start-line="157" selection-start-column="43" selection-end-line="157" selection-end-column="43" />
+            <state relative-caret-position="356">
+              <caret line="80" column="87" lean-forward="true" selection-start-line="80" selection-start-column="87" selection-end-line="80" selection-end-column="87" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -172,7 +172,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="720" />
     <option name="y" value="80" />
     <option name="width" value="980" />
@@ -710,7 +710,7 @@
     <property name="last_opened_file_path" value="D:/Stupid-dev-aneon/Tosit" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -882,12 +882,12 @@
       <workItem from="1532875748819" duration="40000" />
       <workItem from="1533025209913" duration="20183000" />
       <workItem from="1533047907410" duration="1557000" />
-      <workItem from="1533084528074" duration="5630000" />
+      <workItem from="1533084528074" duration="6164000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113196000" />
+    <option name="totallyTimeSpent" value="113730000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -940,6 +940,7 @@
   <component name="VcsManagerConfiguration">
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
+      <path value="$USER_HOME$" />
     </ignored-roots>
   </component>
   <component name="XDebuggerManager">
@@ -1310,8 +1311,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/aneon/controller/fileController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2050">
-          <caret line="157" column="43" lean-forward="true" selection-start-line="157" selection-start-column="43" selection-end-line="157" selection-end-column="43" />
+        <state relative-caret-position="356">
+          <caret line="80" column="87" lean-forward="true" selection-start-line="80" selection-start-column="87" selection-end-line="80" selection-end-column="87" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
