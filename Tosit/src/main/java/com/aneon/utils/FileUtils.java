@@ -12,17 +12,16 @@ import java.util.Map;
 
 public class FileUtils {
 
-    public static boolean fileUpload(HttpServletRequest request, HttpSession session, String resourcePath) {  //   /files/teacherFiles
+    public static String fileUpload(HttpServletRequest request, HttpSession session, String resourcePath) {
+        User user = (User)session.getAttribute("User");
         if (request instanceof MultipartHttpServletRequest) {
             MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
             // 获取上传的文件
             Map<String, MultipartFile> fileMap = multipartHttpServletRequest.getFileMap();
             for (Map.Entry<String, MultipartFile> entry : fileMap.entrySet()) {
-
                 MultipartFile multipartFile = entry.getValue();
-
                 if (multipartFile != null) {
-                    String path = request.getServletContext().getRealPath(resourcePath) + "\\" + ((User) session.getAttribute("User")).getUsername();
+                    String path = request.getServletContext().getRealPath(resourcePath) + "\\" + user.getUsername();
                     String filePath = path + "\\" + multipartFile.getOriginalFilename();
                     File dir = new File(path);
                     if (!dir.exists())
@@ -35,12 +34,12 @@ public class FileUtils {
                         multipartFile.transferTo(file);
                     } catch (IOException e) {
                         e.printStackTrace();
-                        return false;
+                        return "";
                     }
-                    return true;
+                    return resourcePath + "/" + user.getUsername() + "/" + multipartFile.getOriginalFilename();
                 }
             }
         }
-        return false;
+        return "";
     }
 }

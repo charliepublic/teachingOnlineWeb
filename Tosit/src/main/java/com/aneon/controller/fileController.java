@@ -15,6 +15,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import  com.aneon.utils.FileUtils;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -123,22 +125,30 @@ public class fileController {
         String a =  map.get("Pnumber")[0];
         int Pnumber = Integer.parseInt(a);
         String fileDetail = map.get("fileDetail")[0];
-        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) httpServletRequest;
+//        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) httpServletRequest;
+
+
         // 获取上传的文件
-        Map<String, MultipartFile> fileMap = multipartHttpServletRequest.getFileMap();
-        MultipartFile multipartFile = null;
-        for (Map.Entry<String, MultipartFile> entry : fileMap.entrySet()) {
-            multipartFile = entry.getValue();
-        }
+//        Map<String, MultipartFile> fileMap = multipartHttpServletRequest.getFileMap();
+//        MultipartFile multipartFile = null;
+//        for (Map.Entry<String, MultipartFile> entry : fileMap.entrySet()) {
+//            multipartFile = entry.getValue();
+//        }
         //添加老师文件
         if (userName.length() == 10 || userName.length() == 12) {
             resourcePath = "/files/teacherFiles";
-            String path = resourcePath + "\\" + ((User) httpSession.getAttribute("User")).getUsername();
-            FileUtils.fileUpload(httpServletRequest, httpSession, resourcePath);
+//            String path = httpServletRequest.getServletContext().getRealPath(resourcePath) + "\\" + user.getUsername();
+//            String filePath = path + "\\" + multipartFile.getOriginalFilename();
+//            String path = resourcePath + "\\" + ((User) httpSession.getAttribute("User")).getUsername();
+            String newPath= FileUtils.fileUpload(httpServletRequest, httpSession, resourcePath);
             Teacher_file_lib teacher_file_lib = new Teacher_file_lib();
 
-            teacher_file_lib.setFilename(multipartFile.getOriginalFilename());
-            teacher_file_lib.setFurl(path + multipartFile.getOriginalFilename());
+            String temp[] = newPath.split("/");
+
+            teacher_file_lib.setFilename(temp[temp.length - 1]);
+
+//            teacher_file_lib.setFilename(multipartFile.getOriginalFilename());
+            teacher_file_lib.setFurl(newPath);
             teacher_file_lib.setDetail(fileDetail);
             teacher_file_lib.setPnumber(Pnumber);
             teacher_file_lib.setTnumber(userName);
@@ -147,11 +157,18 @@ public class fileController {
         // 添加学生文件
         else if (userName.length() == 14) {
             resourcePath = "/files/studentFiles";
-            String path = resourcePath + "\\" + ((User) httpSession.getAttribute("User")).getUsername();
-            FileUtils.fileUpload(httpServletRequest, httpSession, resourcePath);
+//            String path = httpServletRequest.getServletContext().getRealPath(resourcePath) + "\\" + user.getUsername();
+//            String filePath = path + "\\" + multipartFile.getOriginalFilename();
+//            String path = resourcePath + "\\" + ((User) httpSession.getAttribute("User")).getUsername();
+            String newPath = FileUtils.fileUpload(httpServletRequest, httpSession, resourcePath);
             Stu_file_lib stu_file_lib = new Stu_file_lib();
-            stu_file_lib.setFilename(multipartFile.getOriginalFilename());
-            stu_file_lib.setFurl(path + multipartFile.getOriginalFilename());
+//            stu_file_lib.setFilename(multipartFile.getOriginalFilename());
+
+            String regEx = ".+/(.+)$";
+            Pattern p = Pattern.compile(regEx);
+            Matcher m = p.matcher(newPath);
+            stu_file_lib.setFilename(m.group(1));
+            stu_file_lib.setFurl(newPath);
             stu_file_lib.setDetail(fileDetail);
             stu_file_lib.setPnumber(Pnumber);
             stu_file_lib.setSnumber(userName);

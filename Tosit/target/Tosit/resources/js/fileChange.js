@@ -166,11 +166,9 @@ function addNewFile() {
     $.ajax({
         type: 'post',
         url: '/addFile.do',
-        dataType: 'json',
         data: form,
         async: false,
         cache: false,
-        contentType: false,
         processData: false,
         success:function () {
             alert("done");
@@ -179,6 +177,6 @@ function addNewFile() {
             alert("false");
         }
 
-    })
+    });
      window.location.reload();
 }
