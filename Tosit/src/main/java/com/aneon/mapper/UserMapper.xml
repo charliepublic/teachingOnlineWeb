@@ -33,6 +33,10 @@
         <result column="Rnumber" property="username" jdbcType="VARCHAR" />
         <result column="Rname" property="name" jdbcType="VARCHAR" />
     </resultMap>
+    <select id="selectAdmin" resultMap="adminMap">
+        SELECT Rnumber, Rname
+        FROM Rootmanage
+        WHERE Rnumber=#{username} AND Rpass=#{password}
     </select>
 
 

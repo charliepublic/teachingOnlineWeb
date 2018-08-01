@@ -7,6 +7,16 @@ public class Teacher_file_lib {
     private int Pnumber;
     private String detail;
 
+    public Teacher_file_lib(String filename, String furl, String tnumber, int pnumber, String detail) {
+        this.filename = filename;
+        this.furl = furl;
+        Tnumber = tnumber;
+        Pnumber = pnumber;
+        this.detail = detail;
+    }
+
+    public Teacher_file_lib() {
+    }
 
     public String getFilename() {
         return filename;

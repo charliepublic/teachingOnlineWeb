@@ -9,7 +9,7 @@
         <id column="furl" property="furl" jdbcType="VARCHAR"/>
         <result column="filename" property="filename" jdbcType="VARCHAR"/>
         <result column="Tnumber" property="Tnumber" jdbcType="VARCHAR"/>
-        <result column="Pnumber" property="Pnumber" jdbcType="VARCHAR"/>
+        <result column="Pnumber" property="Pnumber" jdbcType="INTEGER"/>
         <result column="detail" property="detail" jdbcType="VARCHAR"/>
     </resultMap>
     <insert id="saveFile" parameterType="com.aneon.po.Teacher_file_lib">

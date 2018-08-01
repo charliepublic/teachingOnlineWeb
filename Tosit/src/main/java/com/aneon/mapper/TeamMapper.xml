@@ -12,11 +12,7 @@
         select * from team
     </select>
 
-<<<<<<< HEAD
-    <insert id="addTeam">
-=======
     <insert id="addTeam" parameterType="com.aneon.po.Team">
->>>>>>> development
         insert  into team
         (Gname,Cnumber,Pnumber)
         values (#{Gname},#{Cnumber},#{Pnumber})

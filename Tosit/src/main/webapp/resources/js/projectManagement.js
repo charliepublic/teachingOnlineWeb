@@ -276,7 +276,7 @@ function changeSubmit(projectnumber) {
 }
 
 function deleteProjectf(projectnumber) {
-    var deleteid = "DeleteProject"+projectnumber;
+    var deleteid = "#DeleteProject"+projectnumber;
     $.ajax({
         type:'post',
         url: '/deleteProject.do',
@@ -288,9 +288,8 @@ function deleteProjectf(projectnumber) {
             if(result!=="删除失败")
             {
 
-                $(deleteid).html("删除成功");
-                $(deleteid).attr("disabled",true);
-
+                window.alert("删除成功");
+                window.location.reload();
             }else{
                 window.alert("删除失败");
             }
@@ -320,6 +319,7 @@ function newProjectf() {
             if (result !== "新建项目失败") {
 
                 alert("done!");
+                window.location.reload();
             } else {
                 window.alert("新建项目失败！");
             }
