@@ -9,9 +9,10 @@
         <result column="Tnumber" property="username" jdbcType="VARCHAR" />
         <result column="Tname" property="name" jdbcType="VARCHAR" />
         <result column="teachfile" property="teachFile" jdbcType="VARCHAR" />
+        <result column="IsAdmin" property="isAdmin" jdbcType="BOOLEAN" />
     </resultMap>
     <select id="selectTeacher" resultMap="teacherMap">
-        SELECT Tnumber, Tname, teachfile
+        SELECT Tnumber, Tname, teachfile, IsAdmin
         FROM teacher
         WHERE Tnumber=#{username} AND Tpass=#{password}
     </select>
@@ -28,16 +29,4 @@
         FROM student
         WHERE Snumber=#{username} AND Spass=#{password}
     </select>
-
-    <resultMap id="adminMap" type="com.aneon.po.RootManager">
-        <result column="Rnumber" property="username" jdbcType="VARCHAR" />
-        <result column="Rname" property="name" jdbcType="VARCHAR" />
-    </resultMap>
-    <select id="selectAdmin" resultMap="adminMap">
-        SELECT Rnumber, Rname
-        FROM Rootmanage
-        WHERE Rnumber=#{username} AND Rpass=#{password}
-    </select>
-
-
 </mapper>

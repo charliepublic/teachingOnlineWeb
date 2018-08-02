@@ -22,26 +22,19 @@ public class LoginServiceImpl implements LoginService {
         params.put("username", username);
         params.put("password", password);
         if(username.length() == 10) {
-            RootManager rootManager = userMapper.selectAdmin(params);
-            if (rootManager == null) {
-                return null;
-            }
-            user.setName(rootManager.getName());
-            user.setUsername(rootManager.getUsername());
-            user.setIdentify(Identify.ROOT);
-            return user;
-        }
-        else if (username.length() == 12) {
             Teacher teacher = userMapper.selectTeacher(params);
             if (teacher == null) {
                 return null;
             }
+            if (teacher.isAdmin())
+                user.setIdentify(Identify.ROOT);
+            else
+                user.setIdentify(Identify.TEACHER);
             user.setUsername(teacher.getUsername());
             user.setName(teacher.getName());
-            user.setIdentify(Identify.TEACHER);
             return user;
         }
-        else if(username.length() == 14) {
+        else if(username.length() == 12) {
             Student student = userMapper.selectStudent(params);
             if (student == null) {
                 return null;

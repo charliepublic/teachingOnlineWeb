@@ -116,9 +116,6 @@ public class FileController {
     void addFile(HttpServletResponse response, HttpSession httpSession, HttpServletRequest httpServletRequest) {
 
         boolean dfd = httpServletRequest instanceof MultipartHttpServletRequest;
-        response.setHeader("Cache-Control", "no-cache");
-        response.setContentType("text/json;charset=UTF-8");
-        response.setCharacterEncoding("UTF-8");
         User user = (User) httpSession.getAttribute("User");
         String userName = user.getUsername();
         String resourcePath ;

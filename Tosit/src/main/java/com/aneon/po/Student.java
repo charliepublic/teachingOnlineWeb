@@ -7,11 +7,11 @@ public class Student extends User {
     private String Tnumber;
 
     public Student(String username, String name) {
-        super(username, name);
+        super(username, name, Identify.STUDENT);
     }
 
     public Student(String snumber, String sname, Integer classnumber){
-        super(snumber, sname);
+        super(snumber, sname, Identify.STUDENT);
         Gnumber=classnumber;
     }
     public Student(String snumber,String sname,String spass) {
@@ -20,7 +20,7 @@ public class Student extends User {
     }
 
     public Student(String username, String name, Integer gnumber, Integer cnumber, String tnumber) {
-        super(username, name);
+        super(username, name, Identify.STUDENT);
         Gnumber = gnumber;
         Cnumber = cnumber;
         Tnumber = tnumber;

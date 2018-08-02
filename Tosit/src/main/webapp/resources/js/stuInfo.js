@@ -113,6 +113,7 @@ function changeStuClass() {
         type:'post',
         url:'/changeStuClass.do',
         dataType:'json',
+        async: false,
         data:{
             'Snumber':snum,
             'Cnumber':cnum

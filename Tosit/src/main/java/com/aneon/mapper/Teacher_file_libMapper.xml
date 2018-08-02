@@ -12,11 +12,11 @@
         <result column="Pnumber" property="Pnumber" jdbcType="INTEGER"/>
         <result column="detail" property="detail" jdbcType="VARCHAR"/>
     </resultMap>
-    <insert id="saveFile" parameterType="com.aneon.po.Teacher_file_lib">
+    <insert id="saveFile">
         insert into teacher_file_lib(filename,furl,Tnumber,Pnumber,detail) values (#{filename},#{furl},#{Tnumber},#{Pnumber},#{detail})
     </insert>
 
-    <update id="updateFile" parameterType="com.aneon.po.Teacher_file_lib">
+    <update id="updateFile">
         update teacher_file_lib set detail=#{detail} where furl=#{furl}
     </update>
 

@@ -164,15 +164,14 @@ function addNewFile() {
         type: 'post',
         url: '/addFile.do',
         data: form,
-        dataType: 'json',
         async: false,
         cache: false,
         contentType: false,
         processData: false,
-        success:function () {
+        success:function (result) {
             alert("done");
         },
-        error:function () {
+        error:function (err) {
             alert("false");
         }
 
