@@ -3,34 +3,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/resources/css/student.css" >
 
 <body onload="loadStuInfo(); return false">
-<div class="container"style="padding: 100px 100px 10px">
-    <h1>
-        <div style="width:25%;height:auto;float:left;display:inline">已有学员</div>
+<div class="container">
+    <div class="form-inline my-3 ml-3">
+        <h3 class="text-muted">学员管理</h3>
+        <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="">批量导入</button>-->
+        <button type="button" class="btn btn-primary ml-sm-3" data-toggle="modal" data-target="#myModal2">导入学员</button>
+    </div>
 
-        <div style="width: 50%;height:auto;float:left;display:inline">
-            <input type="text" class="form-control" style="width: 80%;display:inline" placeholder="输入学号或姓名" id="selectStu"/>
+    <div class="container">
+        <form>
             <div class="input-group mb-3">
-                <button type="button" class="btn btn-success" type="submit" style="width: 20%;display: inline" onclick="findStu()">查询</button>
+                <input type="text" class="form-control" id="selectStu" placeholder="输入学号或姓名......">
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-primary" type="submit" onclick="findStu()">查询</button>
+                </div>
             </div>
-        </div>
-
-        <div style="width:25%;height:auto;float:right;display:inline">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="" style="float: right">
-                批量导入 <!--实现批量导入的功能-->
-            </button>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2"style="float: right">
-                导入学员
-            </button>
-        </div>
-    </h1>
-
-    <div class="container" id="stuInfo">
-
+        </form>
+    </div>
+    <div class="container">
+        <table class="table table-hover border border-muted">
+            <thead>
+            <tr><th scope="col">#</th><th>学号</th><th>姓名</th><th>密码</th><th>操作</th></tr>
+            </thead>
+            <tbody id="stuInfo">
+            </tbody>
+        </table>
     </div>
 
 
@@ -125,20 +125,6 @@
                                 </div>
                                 <input type="text" class="form-control" id="Stu_pass" name="spass"/>
                             </div>
-
-                           <!-- <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">班号</span>
-                                </div>
-                                <input type="text" class="form-control" id="StuClass_num" name="cnum"/>
-                            </div>-->
-
-                            <!--<div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">组号</span>
-                                </div>
-                                <input type="text" class="form-control" id="Group_num" name="gnum"/>
-                            </div>-->
                             <button type="submit" class="btn btn-primary"style="float: right" onclick="changeStu()">提交</button>
                         </form>
                     </div>
@@ -153,6 +139,9 @@
         </div>
     </div>
 </div>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </body>
 
 <script src="/resources/js/stuInfo.js"></script>

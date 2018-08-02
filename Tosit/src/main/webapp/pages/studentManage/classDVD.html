@@ -1,18 +1,25 @@
 
 <html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-<body onload="loadDVD();return false">
-<div class="container"style="padding: 100px 100px 10px">
-    <h1>
-        <div style="width:100%;height:auto;float:left;display:block">学员分班信息</div>
-    </h1>
-    <div class="container" id="dvdInfo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/student.css" >
+</head>
 
+<body onload="loadDVD();return false">
+
+<div class="container">
+    <h3 class="text-muted ml-3 my-3">分班信息</h3>
+
+    <div class="container">
+        <table class="table table-hover border border-muted">
+            <thead>
+            <tr><th scope="col">#</th><th>学号</th><th>姓名</th><th>班级</th><th>操作</th></tr>
+            </thead>
+            <tbody id="dvdInfo">
+            </tbody>
+        </table>
     </div>
 </div>
 
@@ -63,6 +70,7 @@
     </div>
 </div>
 </body>
-
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <script src="/resources/js/stuInfo.js"></script>
 </html>

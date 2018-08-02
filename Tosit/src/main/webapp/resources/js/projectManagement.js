@@ -43,11 +43,11 @@ function getFileUrl(projectnumber) {
             var hrefId = "#href" + projectnumber;
             var fileUrl = arr[0].furl;
 
-            if(furl==""){
+            if(fileUrl==""){
                 alert("该项目还没有上传任何文件!");
             }
             else{
-                $(hrefId).attr("href",fileUrl);
+                window.location.replace(fileUrl);
             }
         },
         error:function () {
@@ -68,7 +68,7 @@ function loadApplyManagement() {
 
             for (var i = 0; i < arr.length; i++) {
                 var projectnumber = arr[i].pnumber;
-                content += ' <div id="project'+projectnumber+' class="container-fluid  border" style="padding-top:70px;padding-bottom:70px">\n' +
+                content += ' <div id="project"'+projectnumber+' class="container border" style="padding-top:70px;padding-bottom:70px">\n' +
                     '                <div class="container">\n' +
                     '                    <form class="form-inline">\n' +
                     '                        <p style="margin-right: 10px">项目名称：</p>\n' +
@@ -236,7 +236,7 @@ function changeDescriptionf(projectnumber) {
             content += '                        <p><br><br></p>\n' +
                 '                        <div>\n' +
                 '\n' +
-                '                            <input type="text" class="form-control" id="changeProjectIfo">\n' +
+                '                            <textarea type="text" class="form-control changeInfo-form-control" id="changeProjectIfo"></textarea>\n' +
                 '                        </div>\n' +
                 '                        <p><br></p>\n' +
                 '                        <div>' +

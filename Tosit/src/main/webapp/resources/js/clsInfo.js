@@ -5,21 +5,13 @@ function loadClsInfo() {
         dataType:'json',
         success: function (data) {
             var arr = $.parseJSON(data);
-            var content = "<table class=\"table-hover\" style=\"border:1px;width: 100%\">\n" +
-                "            <thead>\n" +
-                "                 <tr>\n" +
-                "                     <th>班号</th>\n" +
-                "                     <th>班名</th>\n" +
-                "                     <th>操作</th>\n"+
-                "                  </tr>\n" +
-                "            </thead>";
+            var content = '';
             for (var i=0;i<arr.length;i++){
-                content +='<tr><td>'+arr[i].cnumber+'</td><td>'+arr[i].cname+'</td>' +
+                content +='<tr><th scope="row">'+ (i + 1) +'</th><td>'+arr[i].cnumber+'</td><td>'+arr[i].cname+'</td>' +
                     '<td><button type="button" class="btn btn-primary" data-toggle="modal" id="'+ arr[i].cnumber+'" data-target="#myModalUpdata" onclick="setCNum(id)">修改</button>' +
-                    '<button type="button" class="btn btn-primary" data-toggle="modal" id="'+ arr[i].cnumber+'" onclick="deleteCls(id)">删除</button></td></tr>';
+                    '                    <button type="button" class="btn btn-primary ml-sm-2" data-toggle="modal" id="'+ arr[i].cnumber+'" onclick="deleteCls(id)">删除</button></td></tr>';
 
             }
-            content += "</table>";
             $('#clsInfo').html(content);
         }
     })
@@ -97,21 +89,13 @@ function findClassById() {
         dataType:'json',
         success: function (result) {
             var arr = $.parseJSON(result);
-            var content = "<table class=\"table-hover\" style=\"border:1px;width: 100%\">\n" +
-                "            <thead>\n" +
-                "                 <tr>\n" +
-                "                     <th>班号</th>\n" +
-                "                     <th>班名</th>\n" +
-                "                     <th>操作</th>\n"+
-                "                  </tr>\n" +
-                "            </thead>";
+            var content = '';
             for (var i=0;i<arr.length;i++){
-                content +='<tr><td>'+arr[i].cnumber+'</td><td>'+arr[i].cname+'</td>' +
+                content +='<tr><th scope="row">'+ (i + 1) +'</th><td>'+arr[i].cnumber+'</td><td>'+arr[i].cname+'</td>' +
                     '<td><button type="button" class="btn btn-primary" data-toggle="modal" id="'+ arr[i].cnumber+'" data-target="#myModalUpdata" onclick="setCNum(id)">修改</button>' +
-                    '<button type="button" class="btn btn-primary" data-toggle="modal" id="'+ arr[i].cnumber+'" onclick="deleteCls(id)">删除</button></td></tr>';
+                    '<button type="button" class="btn btn-primary ml-sm-2" data-toggle="modal" id="'+ arr[i].cnumber+'" onclick="deleteCls(id)">删除</button></td></tr>';
 
             }
-            content += "</table>";
             $('#clsInfo').html(content);
         }
     })

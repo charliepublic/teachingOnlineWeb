@@ -22,14 +22,15 @@ function searchFile() {
             var arr = $.parseJSON(data);
             var content = "";
             for (var i = 0; i < arr.length; i++) {
-                content += "<div  class=\"container-fluid  border\" style=\"padding-top:70px;padding-bottom:70px\">\n" +
-                    "            <div class=\"container\">\n" +
-                    "                <div class=\"form-inline\">\n" +
-                    "                    <a   href=\""+arr[i].furl+ "\">"+arr[i].filename+"</a> <h6 style=\"float: contour\" >提交者："+arr[i].tnumber +"</h6>\n" +
+                content += "<div class=\"container-fluid  border\">\n" +
+                    "            <div class=\"container my-4\">\n" +
+                    "                <div>\n" +
+                    "                    <p style='font-size:25px'>文件名：<a  href=\"" + arr[i].furl + "\">"+arr[i].filename+"</a></p> <h5>提交者：" +arr[i].tnumber +"</h5>\n" +
                     "\n" +
                     "                </div>\n" +
                     "            </div>\n" +
-                    "            <p>"+arr[i].detail+"</p></div>";
+                    "            <div class='container'><p style='font-size: 15px'>文件描述："+arr[i].detail+"</p></div></div>" +
+                    "";
             }
             $('#showFile').html(content);
         }
@@ -49,14 +50,14 @@ function onLoadFileForShow() {
             var arr = $.parseJSON(data);
             var content = "";
             for (var i = 0; i < arr.length; i++) {
-                content += "<div  class=\"container-fluid  border\" style=\"padding-top:70px;padding-bottom:70px\">\n" +
-                    "            <div class=\"container\">\n" +
-                    "                <div class=\"form-inline\">\n" +
-                    "                    <a  href=\"" + arr[i].furl + "\">"+arr[i].filename+"</a> <h6 style=\"float: contour\" >提交者：" +arr[i].tnumber +"</h6>\n" +
+                content += "<div class=\"container-fluid  border\">\n" +
+                    "            <div class=\"container my-4\">\n" +
+                    "                <div>\n" +
+                    "                    <p style='font-size:25px'>文件名：<a  href=\"" + arr[i].furl + "\">"+arr[i].filename+"</a></p> <h5>提交者：" +arr[i].tnumber +"</h5>\n" +
                     "\n" +
                     "                </div>\n" +
                     "            </div>\n" +
-                    "            <p>"+arr[i].detail+"</p></div>" +
+                    "            <div class='container'><p style='font-size: 15px'>文件描述："+arr[i].detail+"</p></div></div>" +
                     "";
             }
             $('#showFile').html(content);

@@ -3,28 +3,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/student.css" >
 </head>
 <body onload="loadClsInfo();return false;">
-<div class="container" style="padding: 100px 100px 10px">
-    <h1>
-        <div style="width:25%;height:auto;float:left;display:inline">已有班级</div></h1>
+<div class="container">
+    <div class="form-inline ml-3 my-3">
+        <h3 class="text-muted">班级管理</h3>
+        <button type="button" class="btn btn-primary ml-sm-3" data-toggle="modal" data-target="#myModal1">创建班级</button>
+    </div>
 
-        <div style="width: 50%;height:auto;float:left;display:inline">
-
-            <div >
-                <input type="text" class="form-control" placeholder="输入班号" id="selectCls" name="clsFind"/>
-                <button class="btn btn-success" type="submit" onclick="findClassById()" >查询</button>
+    <div class="container">
+        <form>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="selectCls" name="clsFind" placeholder="输入班号......">
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-primary" type="submit" onclick="findClassById()">查询</button>
+                </div>
             </div>
-        </div>
+        </form>
+    </div>
 
-        <div style="width:25%;height:auto;float:right;display:inline">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1"style="float: right">
-                创建班级
-            </button>
-        </div>
+    <div class="container">
+        <table class="table table-hover border border-muted">
+            <thead>
+            <tr><th scope="col">#</th><th>班号</th><th>班名</th><th>操作</th></tr>
+            </thead>
+            <tbody id="clsInfo">
 
-
-    <div class="container" id="clsInfo">
+            </tbody>
+        </table>
     </div>
 
     <!-- 模态框 -->
@@ -44,13 +51,6 @@
                 <div class="modal-body">
                     <div class="container mt-3">
                         <form>
-                            <!--<div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">班级编号</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="班号" id="CreateClass_num" name="cnum"/>
-                            </div>-->
-
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">班级名称</span>
@@ -117,9 +117,6 @@
 </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
-
 <script src="/resources/js/clsInfo.js"></script>
 </html>

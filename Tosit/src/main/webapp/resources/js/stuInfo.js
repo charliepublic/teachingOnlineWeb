@@ -5,22 +5,11 @@ function loadStuInfo() {
         dataType:'json',
         success: function (data) {
             var arr = $.parseJSON(data);
-            var content = "<table class=\"table-hover\" style=\"border:1px;width: 100%\">\n" +
-                "            <thead>\n" +
-                "                 <tr>\n" +
-                "                     <th>学号</th>\n" +
-                "                     <th>姓名</th>\n" +
-                "                     <th>密码</th>\n" +
-               /* "                     <th>班号</th>\n" +
-                "                     <th>组号</th>\n" +*/
-                "                     <th>操作</th>\n" +
-                "                  </tr>\n" +
-                "            </thead>";
+            var content = '';
             for (var i=0;i<arr.length;i++){
-                content +='<tr><td>'+arr[i].username+'</td><td>'+arr[i].name+/*'</td><td>'+arr[i].classNumber+'</td><td>'+arr[i].groupNumber+'</td>' */'</td><td>'+arr[i].spass+'</td>'+
+                content +='<tr><th scope="row">'+ (i + 1) +'</th><td>'+arr[i].username+'</td><td>'+arr[i].name+'</td><td>'+arr[i].spass+'</td>'+
                     '<td><button type="button" class="btn btn-primary" data-toggle="modal" id="'+ arr[i].username+'" onclick="setSNum(id)" data-target="#myModalChangeStu">修改</button></td></tr>';
             }
-            content += "</table>";
             $('#stuInfo').html(content);
         }
     })
@@ -37,20 +26,11 @@ function loadDVD() {
         dataType:'json',
         success: function (data) {
             var arr = $.parseJSON(data);
-            var content = "<table class=\"table-hover\" style=\"border:1px;width: 100%\">\n" +
-                "            <thead>\n" +
-                "                 <tr>\n" +
-                "                     <th>学号</th>\n" +
-                "                     <th>姓名</th>\n" +
-                "                     <th>班级</th>\n" +
-                "                     <th>操作</th>\n" +
-                "                  </tr>\n" +
-                "            </thead>";
+            var content = '';
             for (var i=0;i<arr.length;i++){
-                content +='<tr><td>'+arr[i].username+'</td><td>'+arr[i].name+'</td><td>'+arr[i].cnumber+'</td><td>'+
+                content +='<tr><th>' + (i + 1) + '</th><td>'+arr[i].username+'</td><td>'+arr[i].name+'</td><td>'+arr[i].cnumber+'</td><td>'+
                     '<button type="button" class="btn btn-primary" data-toggle="modal" id="'+ arr[i].username+'" data-target="#myModalDVD" onclick="setSNum1(id)">修改</button></td></tr>';
             }
-            content += "</table>";
             $('#dvdInfo').html(content);
         }
     })
@@ -151,28 +131,6 @@ function changeStuGroup() {
     })
 
 }
-/*
-
-function findStuCnumberById(id) {
-    $('#StuD_num').val(id);
-    $.ajax({
-        type:'get',
-        url:'/findStuCnumberById.do',
-        dataType:'json',
-        data:{
-            'Snumber':id
-
-        },
-        success:function (data) {
-
-                var cnum = $.parseJSON(data);
-                $('#StuCurrent_Cnum').val(cnum.cnumber);
-
-        }
-    })
-
-}
-*/
 
 function showCnumber() {
     $.ajax({
@@ -181,7 +139,7 @@ function showCnumber() {
         dataType: 'json',
         success: function (data) {
             var arr = $.parseJSON(data);
-            var options = "<option>-请选择班级-</option>";
+            var options = $('#showStuCnum').html();
             for (var i = 0; i<arr.length; i++) {
                 options += '<option class="dropdown-item" value="'+ arr[i].cnumber+'">' + arr[i].cnumber + '班' + '</option>';
             }
@@ -237,20 +195,12 @@ function findStu() {
         dataType:'json',
         success: function (result) {
             var arr = $.parseJSON(result);
-            var content = "<table class=\"table-hover\" style=\"border:1px;width: 100%\">\n" +
-                "            <thead>\n" +
-                "                 <tr>\n" +
-                "                     <th>学号</th>\n" +
-                "                     <th>姓名</th>\n" +
-                "                     <th>密码</th>\n"+
-                "                  </tr>\n" +
-                "            </thead>";
+            var content = '';
             for (var i=0;i<arr.length;i++){
-                content +='<tr><td>'+arr[i].username+'</td><td>'+arr[i].name+'</td><td>'+arr[i].spass+
+                content +='<tr><th scope="row">'+ (i + 1) +'</th><td>'+arr[i].username+'</td><td>'+arr[i].name+'</td><td>'+arr[i].spass+
                     '</td><td><button type="button" class="btn btn-primary" data-toggle="modal" id="'+ arr[i].username+'" data-target="#myModalChangeStu" onclick="setSNum(id)">修改</button></td></tr>';
 
             }
-            content += "</table>";
             $('#stuInfo').html(content);
         }
     })

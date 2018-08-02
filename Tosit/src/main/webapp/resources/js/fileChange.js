@@ -22,16 +22,18 @@ function searchFile() {
             for (var i = 0; i < arr.length; i++) {
                 content += "<div  class=\"container-fluid  border\" style=\"padding-top:70px;padding-bottom:70px\">\n" +
                     "            <div class=\"container\">\n" +
-                    "                <div class=\"form-inline\">\n" +
-                    "                    <a   href=\"" + arr[i].furl + "\">" + arr[i].filename + "</a> " +
-                    "                    <h6 style=\"float: contour\" >提交者：" + arr[i].tnumber + "</h6>\n" +
+                    "                <div>\n" +
+                    "                    <p  style='font-size: 25px;'>文件名：<a href=\""+arr[i].furl+ "\">"+arr[i].filename+"</a></p>" +
+                    "                    <h5 class='my-3' style=\"float: contour\" >提交者："+arr[i].tnumber +"</h5>\n" +
                     "                </div>\n" +
                     "            </div>\n" +
-                    "            <p>" + arr[i].detail + "</p>" + "<button type=\"button\"  class=\"btn btn-primary float-left\" " +
-                    "data-toggle=\"modal\" data-target=\"#addDetail" + i + "\">修改描述</button>\n" +
-                    "            <button   type=\"submit\"  class=\"btn btn-primary float-right\"" +
-                    " onclick=\"deleteFile('" + arr[i].furl + "')\">删除</button></div>"
-                    + "<div class=\"modal fade\" id=\"addDetail" + i + "\">\n" +
+                    "            <div class='container'>" +
+                    "               <p style='font-size: 15px;'>"+arr[i].detail+"</p>" +
+                    "               <button type=\"button\"  class='btn btn-primary float-left' " +
+                    "data-toggle=\"modal\" data-target=\"#addDetail"+i+"\">修改描述</button>\n" +
+                    "               <button   type=\"submit\"  class=\"btn btn-primary float-right\"" +
+                    " onclick=\"deleteFile('"+arr[i].furl+"')\">删除</button></div></div>"
+                    +   "<div class=\"modal fade\" id=\"addDetail"+i+"\">\n" +
                     "        <div class=\"modal-dialog\">\n" +
                     "            <div class=\"modal-content\">\n" +
                     "\n" +
@@ -44,11 +46,11 @@ function searchFile() {
                     "                <!-- 模态框主体 -->\n" +
                     "                <div class=\"modal-body\">\n" +
                     "                    <div class=\"input-group mb-3\">\n" +
-                    "                        <input type=\"text\" class=\"form-control\" id=\"" + arr[i].furl + "\" \n" +
+                    "                        <input type=\"text\" class=\"form-control\" id=\""+arr[i].furl+"\" \n" +
                     "                               placeholder=\"请输入文档描述......\" aria-label=\"Recipient's username\"\n" +
                     "                               aria-describedby=\"button-addon2\">\n" +
                     "                        <div class=\"input-group-append\">\n" +
-                    "                            <button class=\"btn btn-primary\" type=\"button\" onclick=\"changeDetail('" + arr[i].furl + "')\">修改</button>\n" +
+                    "                            <button class=\"btn btn-primary\" type=\"button\" onclick=\"changeDetail('"+arr[i].furl+"')\">修改</button>\n" +
                     "                        </div>\n" +
                     "                    </div>\n" +
                     "                </div>\n" +
@@ -62,11 +64,11 @@ function searchFile() {
                     "        </div>\n" +
                     "    </div>"
                 ;
-                $('#showFile').html(content);
             }
+            $('#showFile').html(content);
         }
 
-    })
+    });
 }
 
 function onLoadFileForShow() {
@@ -82,15 +84,16 @@ function onLoadFileForShow() {
             for (var i = 0; i < arr.length; i++) {
                 content += "<div  class=\"container-fluid  border\" style=\"padding-top:70px;padding-bottom:70px\">\n" +
                     "            <div class=\"container\">\n" +
-                    "                <div class=\"form-inline\">\n" +
-                    "                    <a   href=\""+arr[i].furl+ "\">"+arr[i].filename+"</a> " +
-                    "                    <h6 style=\"float: contour\" >提交者："+arr[i].tnumber +"</h6>\n" +
+                    "                <div>\n" +
+                    "                    <p style='font-size: 25px;'>文件名：<a href=\""+arr[i].furl+ "\">"+arr[i].filename+"</a></p>" +
+                    "                    <h5 class='my-3' style=\"float: contour\" >提交者："+arr[i].tnumber +"</h5>\n" +
                     "                </div>\n" +
                     "            </div>\n" +
-                    "            <p>"+arr[i].detail+"</p>"+"<button type=\"button\"  class=\"btn btn-primary float-left\" " +
+                    "            <div class='container'>" +
+                    "               <p style='font-size: 15px;'>文件描述："+arr[i].detail+"</p>"+"<button type=\"button\"  class=\"btn btn-primary float-left\" " +
                     "data-toggle=\"modal\" data-target=\"#addDetail"+i+"\">修改描述</button>\n" +
                     "            <button   type=\"submit\"  class=\"btn btn-primary float-right\"" +
-                    " onclick=\"deleteFile('"+arr[i].furl+"')\">删除</button></div>"
+                    " onclick=\"deleteFile('"+arr[i].furl+"')\">删除</button></div></div>"
                 +   "<div class=\"modal fade\" id=\"addDetail"+i+"\">\n" +
                     "        <div class=\"modal-dialog\">\n" +
                     "            <div class=\"modal-content\">\n" +
@@ -136,8 +139,8 @@ function deleteFile( furl) {
             data: {
                 furl:furl
             },
-            dataType: 'json',
-        })
+            dataType: 'json'
+        });
         onLoadFileForShow();
         window.location.reload();
 }
@@ -152,8 +155,8 @@ function changeDetail(furl) {
             furl:furl,
             newDetail:newDetail
         },
-        dataType: 'json',
-    })
+        dataType: 'json'
+    });
     window.location.reload();
 }
 
