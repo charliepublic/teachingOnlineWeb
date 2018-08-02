@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aneon.mapper.TaskMapper">
+    <resultMap id="taskMapper" type="com.aneon.po.Task">
+        <id column="TaskName" property="TaskName" jdbcType="VARCHAR"/>
+        <result column="starTime" property="starTime" jdbcType="DATE"/>
+        <result column="endTime" property="endTime" jdbcType="DATE"/>
+        <result column="Tnumber" property="Tnumber" jdbcType="VARCHAR"/>
+        <result column="Cnumber" property="Cnumber" jdbcType="INTEGER"/>
+        <result column="detail" property="detail" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="getAllTask" resultMap="taskMapper">
+        select * from task
+    </select>
+
+    <select id="getTaskByName" resultMap="taskMapper">
+        select  * from task
+        where TaskName = #{TaskName}
+    </select>
+
+    <delete id="deleteTask">
+        delete from task
+        where TName = #{Tname}
+    </delete>
+
+    <insert id="addTask">
+        insert into task
+        (TaskName,starTime,endTime,Tnumber,Cnumber,detail)
+        values (#{TasjName,jdbcType = VARCHAR},#{starTime,jdbcType = DATE},#{endTime,jdbcType = DATE},#{Tnumber，jdbcType = VARCHAR},#{Cnumber,jdbcType = INTEGER},#{detail,jdbcType= VARCHAR})
+    </insert>
+</mapper>

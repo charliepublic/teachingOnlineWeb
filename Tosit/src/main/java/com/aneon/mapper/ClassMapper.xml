@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 该文件待修改，需要明确实体类后确定查询所需要的语句和得到的实体 -->
+
+<mapper namespace="com.aneon.mapper.ClassMapper">
+    <resultMap id="classMapper" type="com.aneon.po.Class">
+        <id column="Cnumber" property="Cnumber" jdbcType="INTEGER"/>
+        <result column="Cname" property="Cname" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <insert id="addClass" parameterType="com.aneon.po.Class">
+        insert into class(Cname) values (#{Cname})
+    </insert>
+    
+    <update id="updateClass" parameterType="com.aneon.po.Class">
+        update class set Cname=#{Cname} where Cnumber=#{Cnumber}
+    </update>
+
+    <delete id="deleteClass">
+        delete from class where Cnumber=#{Cnumber}
+    </delete>
+
+    <select id="findClass" resultMap="classMapper">
+        select * from class where Cnumber=#{Cnumber}
+    </select>
+
+    <select id="getAllClass" resultMap="classMapper">
+        select * from class
+    </select>
+
+    <select id="getClassNum" resultMap="classMapper">
+        select distinct Cnumber
+        from class
+    </select>
+
+</mapper>

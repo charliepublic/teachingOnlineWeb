@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 该文件待修改，需要明确实体类后确定查询所需要的语句和得到的实体 -->
+
+<mapper namespace="com.aneon.mapper.Teacher_file_libMapper">
+    <resultMap id="teacher_file_libMapper" type="com.aneon.po.Teacher_file_lib">
+        <id column="furl" property="furl" jdbcType="VARCHAR"/>
+        <result column="filename" property="filename" jdbcType="VARCHAR"/>
+        <result column="Tnumber" property="Tnumber" jdbcType="VARCHAR"/>
+        <result column="Pnumber" property="Pnumber" jdbcType="INTEGER"/>
+        <result column="detail" property="detail" jdbcType="VARCHAR"/>
+    </resultMap>
+    <insert id="saveFile">
+        insert into teacher_file_lib(filename,furl,Tnumber,Pnumber,detail) values (#{filename},#{furl},#{Tnumber},#{Pnumber},#{detail})
+    </insert>
+
+    <update id="updateFile">
+        update teacher_file_lib set detail=#{detail} where furl=#{furl}
+    </update>
+
+    <delete id="deleteFile">
+        delete from teacher_file_lib where furl=#{furl}
+    </delete>
+
+    <select id="findFile" resultMap="teacher_file_libMapper">
+        select * from teacher_file_lib where filename like '%${filename}%'
+    </select>
+
+    <select id="getTeacherFile" resultMap="teacher_file_libMapper">
+        select * from teacher_file_lib where Tnumber = #{Tnumber}
+    </select>
+
+    <select id="getAllTeacherFile" resultMap="teacher_file_libMapper">
+        select  * from teacher_file_lib
+    </select>
+
+    <select id="getTeacherFileByFurl" resultMap="teacher_file_libMapper">
+        select * from  teacher_file_lib where furl = #{furl}
+    </select>
+</mapper>

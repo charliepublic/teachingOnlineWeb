@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.aneon.mapper.UserMapper">
+    
+    <resultMap id="teacherMap" type="com.aneon.po.Teacher">
+        <result column="Tnumber" property="username" jdbcType="VARCHAR" />
+        <result column="Tname" property="name" jdbcType="VARCHAR" />
+        <result column="teachfile" property="teachFile" jdbcType="VARCHAR" />
+        <result column="IsAdmin" property="isAdmin" jdbcType="BOOLEAN" />
+    </resultMap>
+    <select id="selectTeacher" resultMap="teacherMap">
+        SELECT Tnumber, Tname, teachfile, IsAdmin
+        FROM teacher
+        WHERE Tnumber=#{username} AND Tpass=#{password}
+    </select>
+
+    <resultMap id="studentMap" type="com.aneon.po.Student">
+        <result column="Snumber" property="username" jdbcType="VARCHAR" />
+        <result column="Sname" property="name" jdbcType="VARCHAR" />
+        <result column="Gnumber" property="groupNumber" jdbcType="INTEGER" />
+        <result column="Cnumber" property="classNumber" jdbcType="INTEGER" />
+        <result column="Tnumber" property="teacher" jdbcType="VARCHAR" />
+    </resultMap>
+    <select id="selectStudent" resultMap="studentMap">
+        SELECT Snumber, Sname, Gnumber, Cnumber, Tnumber
+        FROM student
+        WHERE Snumber=#{username} AND Spass=#{password}
+    </select>
+</mapper>

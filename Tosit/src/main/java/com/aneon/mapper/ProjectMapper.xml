@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aneon.mapper.ProjectMapper">
+    <resultMap id="projectMapper" type="com.aneon.po.Project">
+        <id column="Pnumber" property="Pnumber" jdbcType="INTEGER"/>
+        <result column="Pname" property="Pname" jdbcType="VARCHAR"/>
+        <result column="UpTime" property="UpTime" jdbcType="INTEGER"/>
+        <result column="Info" property="Info" jdbcType="VARCHAR"/>
+        <result column="isPass" property="isPass" jdbcType="INTEGER"/>
+    </resultMap>
+    <resultMap id="teacher_file_libMapper" type="com.aneon.po.Teacher_file_lib">
+        <id column="furl" property="furl" jdbcType="VARCHAR"/>
+        <result column="filename" property="filename" jdbcType="VARCHAR"/>
+        <result column="Tnumber" property="Tnumber" jdbcType="VARCHAR"/>
+        <result column="Pnumber" property="Pnumber" jdbcType="INTEGER"/>
+        <result column="detail" property="detail" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <insert id="newProject">
+        insert INTO project (Pname,Uptime,Info,isPass)
+        values (#{projectname},#{projectuptime},#{projectinfo},'0')
+    </insert>
+
+    <update id="updateProject">
+        update project
+        set
+          isPass = '1'
+        where  Pnumber = #{Pnumber}
+    </update>
+
+    <update id="updateProjectInfo">
+        update project
+        set
+          Info = #{projectInfo}
+        where  Pnumber = #{projectnumber}
+    </update>
+
+
+    <update id="updateUnpassProject">
+        update project
+        set
+          isPass = '2'
+        where  Pnumber = #{Pnumber}
+    </update>
+
+    <delete id="deleteProject">
+        delete from project where Pnumber = #{projectnumber}
+    </delete>
+
+    <select id="selectProject" resultMap="projectMapper">
+        select *
+        from project
+        where Pname like '%${projectname}%'
+        AND isPass = '1'
+    </select>
+
+    <select id="getAllProject" resultMap="projectMapper">
+        select *
+        from project
+    </select>
+
+    <select id="getAllPassProject" resultMap="projectMapper">
+        select *
+        from project
+        where isPass = '1'
+    </select>
+
+    <select id="getAllUnpassProject" resultMap="projectMapper">
+        select *
+        from project
+        where ispass = '0'
+    </select>
+
+    <select id="getProjectFileUrl" resultMap="teacher_file_libMapper">
+        select *
+        from teacher_file_lib
+        where Pnumber = #{projectnumber}
+    </select>
+
+</mapper>

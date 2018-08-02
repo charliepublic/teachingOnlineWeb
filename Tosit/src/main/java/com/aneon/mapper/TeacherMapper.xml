@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aneon.mapper.TeacherMapper">
+    <resultMap id="teacherMap" type="com.aneon.po.Teacher">
+        <result column="Tnumber" property="username" jdbcType="VARCHAR" />
+        <result column="Tname" property="name" jdbcType="VARCHAR" />
+        <result column="teachfile" property="teachFile" jdbcType="VARCHAR" />
+    </resultMap>
+    <select id="getAllTeachers" resultMap="teacherMap">
+        SELECT Tnumber, Tname, teachfile
+        FROM teacher
+    </select>
+    
+    <update id="updatePlan">
+        UPDATE teacher
+        SET teachfile=#{url, jdbcType=VARCHAR}
+        WHERE Tnumber=#{username, jdbcType=VARCHAR}
+    </update>
+
+    <update id="deletePlan">
+        UPDATE teacher
+        SET teachfile=null
+        WHERE Tnumber=#{username}
+    </update>
+</mapper>
