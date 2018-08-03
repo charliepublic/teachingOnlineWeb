@@ -75,9 +75,8 @@
                                 <div class="icon">
                                     <img src="resources/img/first-icon.png" alt="">
                                 </div>
-                                <h4>Quick Editing</h4>
-                                <p>Aliquam ex velit, viverra eu tristique vel, rhoncus nec ligula. In vel massa sed dolor pharetra
-                                    interdum vitae posuere.</p>
+                                <h4>Efficient</h4>
+                                <p>Help training teachers (including administrators) to effectively manage training projects and students.</p>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
@@ -85,9 +84,8 @@
                                 <div class="icon">
                                     <img src="resources/img/second-icon.png" alt="">
                                 </div>
-                                <h4>Responsive Layout</h4>
-                                <p>Sed pulvinar ipsum id leo volutpat, in convallis lectus molestie. Aliquam nisi sapien, faucibus
-                                    eu consequat id, egestas vitae augue.</p>
+                                <h4>Practical</h4>
+                                <p>Perfect coverage of daily management operations and complete functions,and avoid a lot of mistakes in management</p>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
@@ -95,9 +93,8 @@
                                 <div class="icon">
                                     <img src="resources/img/third-icon.png" alt="">
                                 </div>
-                                <h4>Quick Support</h4>
-                                <p>Aliquam ex velit, viverra eu tristique vel, rhoncus nec ligula. In vel massa sed dolor pharetra
-                                    interdum vitae posuere.</p>
+                                <h4>Concise</h4>
+                                <p>The interface is crisp and concise, and the daily tasks are done easily.</p>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
@@ -105,9 +102,8 @@
                                 <div class="icon">
                                     <img src="resources/img/fourth-icon.png" alt="">
                                 </div>
-                                <h4>Voice Chat</h4>
-                                <p>Sed pulvinar ipsum id leo volutpat, in convallis lectus molestie. Aliquam nisi sapien, faucibus
-                                    eu consequat id, egestas vitae augue.</p>
+                                <h4>Cooperation</h4>
+                                <p>Help teachers and students cooperate to complete projects, facilitate group management and control.</p>
                             </div>
                         </div>
                     </div>
