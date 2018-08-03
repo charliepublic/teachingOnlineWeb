@@ -17,8 +17,11 @@
     <div class="container">
         <table class="table table-hover border border-muted">
             <thead>
-            <tr><th>学号</th><th>姓名</th><th>组号</th><th>操作</th></tr>
+            <tr><th>#</th><th>学号</th><th>姓名</th><th>组号</th><th>操作</th></tr>
             </thead>
+            <tbody id="showStuByClassId">
+
+            </tbody>
         </table>
     </div>
 
@@ -44,12 +47,6 @@
                             </div>
                             <input type="text" class="form-control" id="StuD_num2" name="snum2" readonly="readonly">
                         </div>
-                        <!--<div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">学生当前所在组</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="组号" id="G_num1" name="gnum1" readonly="readonly">&lt;!&ndash;应该能获取当前组号,如果没有组可以设为0&ndash;&gt;
-                        </div>-->
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">将该生移动至组</span>

@@ -161,20 +161,11 @@ function showStuInfo(cnumber) {
         dataType:'json',
         success: function (result) {
             var arr = $.parseJSON(result);
-            var content = "<table class=\"table-hover\" style=\"border:1px;width: 100%\">\n" +
-                "            <thead>\n" +
-                "                 <tr>\n" +
-                "                     <th style='width: 30%'>学号</th>\n" +
-                "                     <th style='width: 30%'>姓名</th>\n" +
-                "                     <th style='width: 20%'>组号</th>\n" +
-                "                     <th style='width: 20%'>操作</th>\n" +
-                "                  </tr>\n" +
-                "            </thead>";
+            var content = '';
             for (var i=0;i<arr.length;i++){
-                content +='<tr><td>'+arr[i].username+'</td><td>'+arr[i].name+'</td><td>'+arr[i].gnumber+'</td><td>'+
+                content +='<tr><th>' + (n + 1) + '</th><td>'+arr[i].username+'</td><td>'+arr[i].name+'</td><td>'+arr[i].gnumber+'</td><td>'+
                     '<button type="button" class="btn btn-primary" data-toggle="modal" id="'+ arr[i].username+'" data-target="#myModalchangeG" onclick="setSNum2(id)">修改</button></td></tr>';
             }
-            content += "</table>";
             $('#showStuByClassId').html(content);
         }
     })

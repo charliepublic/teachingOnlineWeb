@@ -24,7 +24,13 @@
                     <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="">退出登录</a></li>
+            <li class="layui-nav-item"><a href="javascript: reload();">退出登录</a></li>
+            <script>
+                function logout() {
+                    <%  session.removeAttribute("User");  %>
+                    window.location.reload();
+                }
+            </script>
         </ul>
     </div>
 
